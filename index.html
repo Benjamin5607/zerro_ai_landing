@@ -15,9 +15,8 @@
   </style>
 </head>
 
-<body class="font-sans">
+<body class="font-sans relative">
 
-  <!-- HERO -->
   <section class="h-screen flex flex-col justify-center items-center text-center px-6">
     <h1 class="text-4xl md:text-6xl font-bold mb-6">
       Build AI systems that choose the best model<br/>at the lowest cost
@@ -27,20 +26,76 @@
       Stop overpaying for AI. ZerroAI routes every request intelligently.
     </p>
 
-    <div class="flex gap-4">
-      <a href="https://zerroai.space" target="_blank"
-        class="px-6 py-3 bg-white text-black rounded-xl hover:opacity-80">
-        Try Demo
-      </a>
+    <div class="flex flex-col items-center gap-4">
+      <div class="flex gap-4">
+        <a href="https://zerroai.space" target="_blank"
+          class="px-6 py-3 bg-white text-black rounded-xl font-bold hover:opacity-80 transition-all">
+          Try Demo
+        </a>
 
-      <a href="#architecture"
-        class="px-6 py-3 border border-gray-700 rounded-xl hover:bg-gray-800">
-        View Architecture
-      </a>
+        <a href="#architecture"
+          class="px-6 py-3 border border-gray-700 rounded-xl hover:bg-gray-800 transition-all">
+          View Architecture
+        </a>
+      </div>
+      
+      <button onclick="toggleSetupGuide()" class="mt-4 text-sm text-gray-400 hover:text-white underline decoration-gray-600 underline-offset-4 transition-all flex items-center gap-2">
+        <span class="text-lg">🥺</span> I have no API → help me
+      </button>
     </div>
   </section>
 
-  <!-- WHAT -->
+  <div id="setup-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex-col items-center justify-center z-50 px-4 transition-opacity">
+    <div class="bg-[#0a0a0a] border border-gray-800 rounded-2xl max-w-2xl w-full p-8 relative shadow-2xl">
+      <button onclick="toggleSetupGuide()" class="absolute top-4 right-5 text-gray-500 hover:text-white text-3xl font-light">&times;</button>
+      
+      <div class="mb-8 text-center">
+        <h2 class="text-2xl font-bold mb-2">🚀 Auto Setup Guide</h2>
+        <p class="text-gray-400">No API keys? No problem. Let's get you set up for <span class="text-white font-bold">FREE</span> in 3 minutes.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-gray-900/50 p-5 rounded-xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-green-500/50 transition-colors">
+          <div>
+            <h3 class="font-bold text-green-400 text-lg flex items-center gap-2">
+              <span>1. Main Brain: Groq</span>
+              <span class="bg-green-500/10 text-green-400 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider">Recommended</span>
+            </h3>
+            <p class="text-sm text-gray-400 mt-1">Insanely fast inference with a generous free tier.</p>
+          </div>
+          <a href="https://console.groq.com/" target="_blank" class="px-5 py-2.5 bg-white text-black rounded-lg text-sm font-bold hover:opacity-80 w-full sm:w-auto text-center">Get Key</a>
+        </div>
+
+        <div class="bg-gray-900/50 p-5 rounded-xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-blue-500/50 transition-colors">
+          <div>
+            <h3 class="font-bold text-blue-400 text-lg flex items-center gap-2">
+              <span>2. Backup Brain: Gemini</span>
+            </h3>
+            <p class="text-sm text-gray-400 mt-1">Google's powerful model. Great free limits.</p>
+          </div>
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" class="px-5 py-2.5 bg-white text-black rounded-lg text-sm font-bold hover:opacity-80 w-full sm:w-auto text-center">Get Key</a>
+        </div>
+
+        <div class="bg-gray-900/50 p-5 rounded-xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-purple-500/50 transition-colors">
+          <div>
+            <h3 class="font-bold text-purple-400 text-lg flex items-center gap-2">
+              <span>3. Local Brain: Ollama</span>
+              <span class="bg-gray-800 text-gray-300 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider">Optional</span>
+            </h3>
+            <p class="text-sm text-gray-400 mt-1">Run 100% locally. 0 server cost, total privacy.</p>
+          </div>
+          <a href="https://ollama.com" target="_blank" class="px-5 py-2.5 border border-gray-600 text-white rounded-lg text-sm font-bold hover:bg-gray-800 w-full sm:w-auto text-center">Download</a>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <button onclick="toggleSetupGuide()" class="px-8 py-3 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors">
+          I got my keys! Let's build 🚀
+        </button>
+      </div>
+    </div>
+  </div>
+
   <section class="py-20 px-6 max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-6">What is ZerroAI?</h2>
     <p class="text-gray-400 text-lg">
@@ -49,226 +104,118 @@
     </p>
   </section>
 
-  <!-- CORE SYSTEMS -->
   <section class="py-20 px-6 max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold mb-12 text-center">Core Systems</h2>
-
     <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="border border-gray-800 p-6 rounded-xl">
+      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
         <h3 class="text-xl mb-2">Smart AI Routing</h3>
-        <p class="text-gray-400">
-          Automatically choose between local, free, and paid models.
-        </p>
+        <p class="text-gray-400">Automatically choose between local, free, and paid models.</p>
       </div>
-
-      <div class="border border-gray-800 p-6 rounded-xl">
+      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
         <h3 class="text-xl mb-2">Plug Anything</h3>
-        <p class="text-gray-400">
-          Connect Slack, Discord, GitHub with modular plugins.
-        </p>
+        <p class="text-gray-400">Connect Slack, Discord, GitHub with modular plugins.</p>
       </div>
-
-      <div class="border border-gray-800 p-6 rounded-xl">
+      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
         <h3 class="text-xl mb-2">AI Agents</h3>
-        <p class="text-gray-400">
-          Persona-driven agents with roles, tone, and validation logic.
-        </p>
+        <p class="text-gray-400">Persona-driven agents with roles, tone, and validation logic.</p>
       </div>
-
-      <div class="border border-gray-800 p-6 rounded-xl">
+      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
         <h3 class="text-xl mb-2">Hybrid LLM</h3>
-        <p class="text-gray-400">
-          Combine local models with API-based intelligence.
-        </p>
+        <p class="text-gray-400">Combine local models with API-based intelligence.</p>
       </div>
-
-      <div class="border border-gray-800 p-6 rounded-xl">
+      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
         <h3 class="text-xl mb-2">Parallel Execution</h3>
-        <p class="text-gray-400">
-          Multi-agent workflows with job queues and async processing.
-        </p>
+        <p class="text-gray-400">Multi-agent workflows with job queues and async processing.</p>
       </div>
-
-      <div class="border border-gray-800 p-6 rounded-xl">
+      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
         <h3 class="text-xl mb-2">Control Everything</h3>
-        <p class="text-gray-400">
-          Control external automation systems from one place.
-        </p>
+        <p class="text-gray-400">Control external automation systems from one place.</p>
       </div>
-
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="py-20 px-6 max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-10">How It Works</h2>
-
     <div class="space-y-4 text-gray-400 text-lg">
       <p>1. Create an agent</p>
       <p>2. Assign persona</p>
       <p>3. Connect tools</p>
       <p>4. Send request</p>
-      <p>5. ZerroAI routes & executes automatically</p>
+      <p class="text-white font-bold">5. ZerroAI routes & executes automatically</p>
     </div>
   </section>
 
-  <!-- API GUIDE -->
-<section class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold mb-12 text-center">
-    Get Your AI Keys (5 min setup)
-  </h2>
-
-  <div class="grid md:grid-cols-2 gap-6">
-
-    <!-- GROQ -->
-    <div class="border border-gray-800 p-6 rounded-xl">
-      <h3 class="text-xl mb-2">Groq (Fast & Free)</h3>
-      <p class="text-gray-400 mb-4">
-        Ultra-fast inference. Great free-tier for LLM usage.
-      </p>
-      <ol class="text-sm text-gray-500 space-y-1">
-        <li>1. Sign up at groq.com</li>
-        <li>2. Go to API Keys</li>
-        <li>3. Copy your key</li>
-      </ol>
-      <a href="https://console.groq.com/" target="_blank"
-        class="inline-block mt-4 text-white underline">
-        Get API Key →
-      </a>
-    </div>
-
-    <!-- GEMINI -->
-    <div class="border border-gray-800 p-6 rounded-xl">
-      <h3 class="text-xl mb-2">Gemini (Google AI)</h3>
-      <p class="text-gray-400 mb-4">
-        Free-tier + powerful models from Google.
-      </p>
-      <ol class="text-sm text-gray-500 space-y-1">
-        <li>1. Go to Google AI Studio</li>
-        <li>2. Generate API key</li>
-        <li>3. Copy and paste</li>
-      </ol>
-      <a href="https://aistudio.google.com/app/apikey" target="_blank"
-        class="inline-block mt-4 text-white underline">
-        Get API Key →
-      </a>
-    </div>
-
-    <!-- HUGGINGFACE -->
-    <div class="border border-gray-800 p-6 rounded-xl">
-      <h3 class="text-xl mb-2">Hugging Face</h3>
-      <p class="text-gray-400 mb-4">
-        Open-source models & inference endpoints.
-      </p>
-      <ol class="text-sm text-gray-500 space-y-1">
-        <li>1. Create account</li>
-        <li>2. Go to Access Tokens</li>
-        <li>3. Generate token</li>
-      </ol>
-      <a href="https://huggingface.co/settings/tokens" target="_blank"
-        class="inline-block mt-4 text-white underline">
-        Get Token →
-      </a>
-    </div>
-
-    <!-- OLLAMA -->
-    <div class="border border-gray-800 p-6 rounded-xl">
-      <h3 class="text-xl mb-2">Ollama (Local AI)</h3>
-      <p class="text-gray-400 mb-4">
-        Run AI locally. No API key required.
-      </p>
-      <ol class="text-sm text-gray-500 space-y-1">
-        <li>1. Install Ollama</li>
-        <li>2. Run: ollama run llama2</li>
-        <li>3. Use localhost:11434</li>
-      </ol>
-      <a href="https://ollama.com" target="_blank"
-        class="inline-block mt-4 text-white underline">
-        Download →
-      </a>
-    </div>
-
-  </div>
-</section>
-
-  <!-- ROUTING VISUAL -->
   <section class="py-20 px-6 max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-6">Smart Cost Routing</h2>
-
-    <p class="text-gray-400 mb-6">
-      Every request is dynamically routed to the most efficient AI provider.
-    </p>
-
-    <div class="text-gray-400 text-lg">
+    <p class="text-gray-400 mb-6">Every request is dynamically routed to the most efficient AI provider.</p>
+    <div class="text-gray-400 text-lg font-mono bg-gray-900 p-4 rounded-xl inline-block border border-gray-800">
       Request → Router → Local / Free / Premium
     </div>
   </section>
 
-  <!-- ARCHITECTURE -->
   <section id="architecture" class="py-20 px-6 max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold mb-12 text-center">System Architecture</h2>
-
     <div class="grid md:grid-cols-3 gap-6 text-sm">
-
       <div class="border border-gray-800 p-6 rounded-xl">
         <h3 class="mb-2 font-semibold">Frontend</h3>
         <p class="text-gray-400">React + Vite</p>
       </div>
-
       <div class="border border-gray-800 p-6 rounded-xl">
         <h3 class="mb-2 font-semibold">Backend</h3>
         <p class="text-gray-400">NestJS + WebSocket</p>
       </div>
-
       <div class="border border-gray-800 p-6 rounded-xl">
         <h3 class="mb-2 font-semibold">LLM Layer</h3>
         <p class="text-gray-400">Ollama + External APIs</p>
       </div>
-
       <div class="border border-gray-800 p-6 rounded-xl">
         <h3 class="mb-2 font-semibold">Queue</h3>
         <p class="text-gray-400">BullMQ + Redis</p>
       </div>
-
       <div class="border border-gray-800 p-6 rounded-xl">
         <h3 class="mb-2 font-semibold">Database</h3>
         <p class="text-gray-400">SQLite + Prisma</p>
       </div>
-
       <div class="border border-gray-800 p-6 rounded-xl">
         <h3 class="mb-2 font-semibold">Monitoring</h3>
         <p class="text-gray-400">Prometheus + Grafana</p>
       </div>
-
     </div>
   </section>
 
-  <!-- COST PHILOSOPHY -->
   <section class="py-20 px-6 max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-6">Cost Philosophy</h2>
-
-    <p class="text-gray-400 text-lg">
+    <p class="text-gray-400 text-lg leading-relaxed">
       ZerroAI doesn’t force you to choose between free and powerful.
       It intelligently routes across local models, free-tier APIs, and premium models
       so you always get the best result at the lowest cost.
     </p>
   </section>
 
-  <!-- CTA -->
   <section class="py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Start Building</h2>
-
     <a href="https://zerroai.space" target="_blank"
-      class="px-8 py-4 bg-white text-black rounded-xl text-lg hover:opacity-80">
+      class="inline-block px-8 py-4 bg-white text-black rounded-xl text-lg font-bold hover:opacity-80 transition-opacity">
       Launch ZerroAI
     </a>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-10 text-center text-gray-600 text-sm">
+  <footer class="py-10 text-center text-gray-600 text-sm border-t border-gray-900 mt-10">
     Built by Wonbin — AI System Builder
   </footer>
 
+  <script>
+    function toggleSetupGuide() {
+      const modal = document.getElementById('setup-modal');
+      // Tailwind 클래스 토글 (hidden 제거, flex 추가)
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
 </body>
 </html>
