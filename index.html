@@ -4,15 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZerroAI</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background: #050505;
-      color: #e5e5e5;
-    }
-  </style>
+  <style> body { background: #050505; color: #e5e5e5; } </style>
 </head>
 
 <body class="font-sans relative">
@@ -21,7 +14,6 @@
     <h1 class="text-4xl md:text-6xl font-bold mb-6">
       Build AI systems that choose the best model<br/>at the lowest cost
     </h1>
-
     <p class="text-lg text-gray-400 max-w-xl mb-8">
       Stop overpaying for AI. ZerroAI routes every request intelligently.
     </p>
@@ -32,7 +24,6 @@
           class="px-8 py-3.5 bg-white text-black rounded-xl font-black shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-all transform hover:-translate-y-1">
           Try Demo
         </a>
-
         <a href="#architecture"
           class="px-8 py-3.5 border border-gray-700 bg-gray-900/50 backdrop-blur-sm rounded-xl font-bold hover:bg-gray-800 transition-all">
           View Architecture
@@ -50,58 +41,90 @@
   <div id="setup-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center z-50 px-4 transition-opacity duration-300">
     <div class="bg-gradient-to-b from-gray-900 to-[#050505] border border-gray-700 shadow-[0_0_50px_rgba(255,255,255,0.05)] rounded-3xl max-w-2xl w-full p-1 relative overflow-hidden">
       
-      <div class="bg-[#0a0a0a] rounded-[23px] w-full h-full p-8 relative">
-        <button onclick="toggleSetupGuide()" class="absolute top-5 right-6 text-gray-600 hover:text-white text-3xl font-light transition-colors">&times;</button>
+      <div class="bg-[#0a0a0a] rounded-[23px] w-full h-full p-8 relative min-h-[450px]">
+        <button onclick="toggleSetupGuide()" class="absolute top-5 right-6 text-gray-600 hover:text-white text-3xl font-light transition-colors z-10">&times;</button>
         
-        <div class="mb-10 text-center">
-          <div class="inline-block px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">Setup Guide 1/3</div>
-          <h2 class="text-3xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Agent Activation Guide</h2>
-          <p class="text-gray-400 text-sm">Choose your preferred intelligence engine to wake up your agent. <br>It takes exactly <span class="text-white font-bold">3 minutes</span>.</p>
+        <div id="step-1" class="block transition-all duration-300">
+          <div class="mb-10 text-center">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">Step 1 / 3</div>
+            <h2 class="text-3xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Choose Your Engine</h2>
+            <p class="text-gray-400 text-sm">Get a free API key from your preferred provider.<br>Then click <b>"I have my key"</b> to proceed.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-green-500/50 hover:bg-green-900/10 transition-all">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 text-2xl font-black">g</div>
+                <div>
+                  <h3 class="font-bold text-gray-200 text-lg flex items-center gap-2">Groq <span class="bg-green-500 text-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-black">Recommended</span></h3>
+                  <p class="text-xs text-gray-500 mt-1">Insanely fast. Massive free tier.</p>
+                </div>
+              </div>
+              <div class="flex gap-2 w-full sm:w-auto">
+                <a href="https://console.groq.com/" target="_blank" class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Get Key ↗</a>
+                <button onclick="goToStep2('Groq')" class="px-4 py-2 bg-green-500/10 text-green-400 border border-green-500/30 rounded-lg text-xs font-bold hover:bg-green-500 hover:text-black transition-all flex-1">2. I have my key →</button>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl font-black">✦</div>
+                <div>
+                  <h3 class="font-bold text-gray-200 text-lg flex items-center gap-2">Gemini</h3>
+                  <p class="text-xs text-gray-500 mt-1">Google's flagship. Great for general tasks.</p>
+                </div>
+              </div>
+              <div class="flex gap-2 w-full sm:w-auto">
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Get Key ↗</a>
+                <button onclick="goToStep2('Gemini')" class="px-4 py-2 bg-blue-500/10 text-blue-400 border border-blue-500/30 rounded-lg text-xs font-bold hover:bg-blue-500 hover:text-white transition-all flex-1">2. I have my key →</button>
+              </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-purple-500/50 hover:bg-purple-900/10 transition-all">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl font-black">🦙</div>
+                <div>
+                  <h3 class="font-bold text-gray-200 text-lg flex items-center gap-2">Ollama <span class="bg-gray-800 text-gray-400 border border-gray-700 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">Local</span></h3>
+                  <p class="text-xs text-gray-500 mt-1">100% Free & Private. Runs locally.</p>
+                </div>
+              </div>
+              <div class="flex gap-2 w-full sm:w-auto">
+                <a href="https://ollama.com" target="_blank" class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Download ↗</a>
+                <button onclick="goToStep3('Ollama')" class="px-4 py-2 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-lg text-xs font-bold hover:bg-purple-500 hover:text-white transition-all flex-1">2. I installed it →</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="space-y-4">
-          <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-green-500/50 hover:bg-green-900/10 transition-all">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 text-2xl font-black">g</div>
-              <div>
-                <h3 class="font-bold text-gray-200 text-lg flex items-center gap-2">
-                  Groq 
-                  <span class="bg-green-500 text-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-black">Recommended</span>
-                </h3>
-                <p class="text-xs text-gray-500 mt-1">Insanely fast inference. Massive free tier.</p>
-              </div>
-            </div>
-            <a href="https://console.groq.com/" target="_blank" class="px-6 py-2.5 bg-green-500/10 text-green-400 border border-green-500/30 rounded-xl text-sm font-bold hover:bg-green-500 hover:text-black w-full sm:w-auto text-center transition-all">Get Key →</a>
+        <div id="step-2" class="hidden transition-all duration-300 h-full flex flex-col justify-center">
+          <div class="mb-10 text-center">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">Step 2 / 3</div>
+            <h2 class="text-3xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Connect <span id="provider-name" class="text-white">API</span></h2>
+            <p class="text-gray-400 text-sm">Paste your secret API key below.<br>It is stored locally on your device.</p>
           </div>
 
-          <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl font-black">✦</div>
-              <div>
-                <h3 class="font-bold text-gray-200 text-lg flex items-center gap-2">Gemini</h3>
-                <p class="text-xs text-gray-500 mt-1">Google's flagship model. Great for general tasks.</p>
-              </div>
+          <div class="max-w-md mx-auto w-full space-y-6">
+            <input type="password" id="api-key-input" placeholder="sk-..." class="w-full bg-gray-900 border border-gray-700 text-white px-5 py-4 rounded-xl outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono">
+            
+            <div class="flex gap-4">
+              <button onclick="goToStep1()" class="px-6 py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
+              <button onclick="saveAndGoToStep3()" class="px-6 py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-colors w-2/3 shadow-[0_0_20px_rgba(255,255,255,0.2)]">Verify & Save 🚀</button>
             </div>
-            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="px-6 py-2.5 bg-blue-500/10 text-blue-400 border border-blue-500/30 rounded-xl text-sm font-bold hover:bg-blue-500 hover:text-white w-full sm:w-auto text-center transition-all">Get Key →</a>
-          </div>
-
-          <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-purple-500/50 hover:bg-purple-900/10 transition-all">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl font-black">🦙</div>
-              <div>
-                <h3 class="font-bold text-gray-200 text-lg flex items-center gap-2">Ollama <span class="bg-gray-800 text-gray-400 border border-gray-700 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">Local API</span></h3>
-                <p class="text-xs text-gray-500 mt-1">100% Free & Private. Runs on your machine.</p>
-              </div>
-            </div>
-            <a href="https://ollama.com" target="_blank" class="px-6 py-2.5 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-xl text-sm font-bold hover:bg-purple-500 hover:text-white w-full sm:w-auto text-center transition-all">Download →</a>
           </div>
         </div>
 
-        <div class="mt-8 text-center pt-6 border-t border-gray-800/50">
-          <button onclick="toggleSetupGuide()" class="px-10 py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transform hover:-translate-y-1">
-            Activate My Agent! 🚀
+        <div id="step-3" class="hidden transition-all duration-300 h-full flex flex-col justify-center items-center text-center">
+          <div class="mb-6">
+            <div class="w-24 h-24 bg-green-500/10 border-2 border-green-500 text-green-400 rounded-full flex items-center justify-center text-5xl mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.3)]">✓</div>
+            <h2 class="text-3xl font-extrabold mb-3 text-white">Agent Activated!</h2>
+            <p class="text-gray-400 text-sm">Your <span id="final-provider" class="text-white font-bold"></span> engine is fully operational.<br>You are ready to build.</p>
+          </div>
+
+          <button onclick="finishSetup()" class="mt-4 px-10 py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transform">
+            Enter Dashboard →
           </button>
         </div>
+
       </div>
     </div>
   </div>
@@ -193,15 +216,6 @@
     </div>
   </section>
 
-  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6">Cost Philosophy</h2>
-    <p class="text-gray-400 text-lg leading-relaxed">
-      ZerroAI doesn’t force you to choose between free and powerful.
-      It intelligently routes across local models, free-tier APIs, and premium models
-      so you always get the best result at the lowest cost.
-    </p>
-  </section>
-
   <section class="py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Start Building</h2>
     <a href="https://zerroai.space" target="_blank"
@@ -215,15 +229,69 @@
   </footer>
 
   <script>
+    let currentProvider = "";
+
     function toggleSetupGuide() {
       const modal = document.getElementById('setup-modal');
       if (modal.classList.contains('hidden')) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
+        goToStep1(); // 열 때 무조건 1단계로 초기화
       } else {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
       }
+    }
+
+    function hideAllSteps() {
+      document.getElementById('step-1').classList.add('hidden');
+      document.getElementById('step-1').classList.remove('block');
+      document.getElementById('step-2').classList.add('hidden');
+      document.getElementById('step-2').classList.remove('block', 'flex');
+      document.getElementById('step-3').classList.add('hidden');
+      document.getElementById('step-3').classList.remove('block', 'flex');
+    }
+
+    function goToStep1() {
+      hideAllSteps();
+      document.getElementById('step-1').classList.add('block');
+      document.getElementById('step-1').classList.remove('hidden');
+    }
+
+    function goToStep2(provider) {
+      currentProvider = provider;
+      document.getElementById('provider-name').innerText = provider;
+      document.getElementById('api-key-input').value = ""; // 입력창 초기화
+      
+      hideAllSteps();
+      document.getElementById('step-2').classList.add('flex');
+      document.getElementById('step-2').classList.remove('hidden');
+    }
+
+    function saveAndGoToStep3() {
+      const key = document.getElementById('api-key-input').value.trim();
+      if (!key) {
+        alert("Please enter your API key first!");
+        return;
+      }
+      
+      // 🚨 사령관님 앱(Zerro AI)과 똑같은 규격으로 로컬스토리지에 몰래 꽂아넣기 ㅋㅋㅋ
+      localStorage.setItem(`API_KEY_${currentProvider.toUpperCase()}`, key);
+      goToStep3(currentProvider);
+    }
+
+    function goToStep3(provider) {
+      currentProvider = provider; // Ollama는 2단계 스킵하고 바로 3단계로 오기 때문
+      document.getElementById('final-provider').innerText = currentProvider;
+      
+      hideAllSteps();
+      document.getElementById('step-3').classList.add('flex');
+      document.getElementById('step-3').classList.remove('hidden');
+    }
+
+    function finishSetup() {
+      // 셋업 끝나면 진짜 대시보드로 쏴줍니다!
+      window.location.href = "https://zerroai.space";
     }
   </script>
 </body>
