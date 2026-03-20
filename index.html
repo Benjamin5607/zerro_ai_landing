@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZerroAI</title>
 
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
-      background: #0a0a0a;
+      background: #050505;
       color: #e5e5e5;
     }
   </style>
@@ -21,74 +20,154 @@
   <!-- HERO -->
   <section class="h-screen flex flex-col justify-center items-center text-center px-6">
     <h1 class="text-4xl md:text-6xl font-bold mb-6">
-      Build AI products with near-zero cost
+      Build autonomous AI systems<br/>with near-zero cost
     </h1>
+
     <p class="text-lg text-gray-400 max-w-xl mb-8">
-      From idea → system → deployable AI tools.
+      Your AI agents. Your rules. No cloud burn.
     </p>
 
     <div class="flex gap-4">
-      <a href="https://zerroai.space" class="px-6 py-3 bg-white text-black rounded-xl">
+      <a href="https://zerroai.space" target="_blank"
+        class="px-6 py-3 bg-white text-black rounded-xl hover:opacity-80">
         Try Demo
       </a>
-      <a href="#projects" class="px-6 py-3 border border-gray-600 rounded-xl">
-        View Projects
+
+      <a href="#architecture"
+        class="px-6 py-3 border border-gray-700 rounded-xl hover:bg-gray-800">
+        View Architecture
       </a>
     </div>
   </section>
 
-  <!-- SYSTEMS -->
-  <section class="py-20 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-10">Core Systems</h2>
+  <!-- WHAT -->
+  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">What is ZerroAI?</h2>
+    <p class="text-gray-400 text-lg">
+      A local-first AI automation factory where autonomous agents run your workflows,
+      connect your tools, and execute tasks — without relying on expensive cloud APIs.
+    </p>
+  </section>
+
+  <!-- 5 PILLARS -->
+  <section class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-12 text-center">Core Systems</h2>
 
     <div class="grid md:grid-cols-3 gap-6">
 
       <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="text-xl mb-2">Prompt → Video</h3>
+        <h3 class="text-xl mb-2">Plug Anything</h3>
         <p class="text-gray-400">
-          Story → 8s scenes → auto prompt generation
+          Slack, Discord, GitHub — extend your system with modular plugins.
         </p>
       </div>
 
       <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="text-xl mb-2">Zero-cost Routing</h3>
+        <h3 class="text-xl mb-2">AI Agents</h3>
         <p class="text-gray-400">
-          Smart model selection to reduce API cost
+          Persona-driven agents with roles, tone, and validation logic.
         </p>
       </div>
 
       <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="text-xl mb-2">Hybrid LLM</h3>
+        <h3 class="text-xl mb-2">Zero-Cost LLM</h3>
         <p class="text-gray-400">
-          Local + API combined architecture
+          Run models locally with Ollama — no API cost, full privacy.
+        </p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="text-xl mb-2">Parallel Execution</h3>
+        <p class="text-gray-400">
+          Multi-agent workflows with job queues and async processing.
+        </p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="text-xl mb-2">Control Everything</h3>
+        <p class="text-gray-400">
+          Reverse integration to control external automation systems.
         </p>
       </div>
 
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="py-20 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-10">Featured Builds</h2>
+  <!-- HOW IT WORKS -->
+  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-10">How It Works</h2>
 
-    <div class="space-y-6">
+    <div class="space-y-4 text-gray-400 text-lg">
+      <p>1. Create an agent</p>
+      <p>2. Assign persona</p>
+      <p>3. Connect plugins</p>
+      <p>4. Run jobs</p>
+      <p>5. Watch automation execute</p>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section id="architecture" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-12 text-center">System Architecture</h2>
+
+    <div class="grid md:grid-cols-3 gap-6 text-sm">
 
       <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="text-xl">AI Content Engine</h3>
-        <p class="text-gray-400">
-          Story → prompt → video pipeline with near-zero cost
-        </p>
+        <h3 class="mb-2 font-semibold">Frontend</h3>
+        <p class="text-gray-400">React + Vite (TypeScript)</p>
       </div>
 
       <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="text-xl">AI Navigation (0 cost)</h3>
-        <p class="text-gray-400">
-          Free-tier based intelligent routing system
-        </p>
+        <h3 class="mb-2 font-semibold">Backend</h3>
+        <p class="text-gray-400">NestJS + WebSocket</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="mb-2 font-semibold">LLM</h3>
+        <p class="text-gray-400">Ollama (local)</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="mb-2 font-semibold">Queue</h3>
+        <p class="text-gray-400">BullMQ + Redis</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="mb-2 font-semibold">Database</h3>
+        <p class="text-gray-400">SQLite + Prisma</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="mb-2 font-semibold">Observability</h3>
+        <p class="text-gray-400">Prometheus + Grafana</p>
       </div>
 
     </div>
   </section>
+
+  <!-- COST PHILOSOPHY -->
+  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">Cost Philosophy</h2>
+    <p class="text-gray-400 text-lg">
+      Most AI systems burn money. ZerroAI is built differently.
+      Local models, smart routing, and modular execution reduce cost to near zero.
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Start Building</h2>
+
+    <a href="https://zerroai.space" target="_blank"
+      class="px-8 py-4 bg-white text-black rounded-xl text-lg hover:opacity-80">
+      Launch ZerroAI
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-gray-600 text-sm">
+    Built by Wonbin — AI System Builder
+  </footer>
 
 </body>
 </html>
