@@ -90,7 +90,7 @@
               </div>
               <div class="flex gap-2 w-full sm:w-auto">
                 <a href="https://ollama.com" target="_blank" class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Download ↗</a>
-                <button onclick="goToStep3('Ollama')" class="px-4 py-2 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-lg text-xs font-bold hover:bg-purple-500 hover:text-white transition-all flex-1">2. I installed it →</button>
+                <button onclick="goToOllamaStep()" class="px-4 py-2 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-lg text-xs font-bold hover:bg-purple-500 hover:text-white transition-all flex-1">2. Connect Locally →</button>
               </div>
             </div>
           </div>
@@ -109,6 +109,27 @@
             <div class="flex gap-4">
               <button onclick="goToStep1()" class="px-6 py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
               <button onclick="saveAndGoToStep3()" class="px-6 py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-colors w-2/3 shadow-[0_0_20px_rgba(255,255,255,0.2)]">Verify & Save 🚀</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="step-ollama" class="hidden transition-all duration-300 h-full flex flex-col justify-center">
+          <div class="mb-8 text-center">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-purple-900/30 border border-purple-700 text-xs text-purple-400 font-bold mb-4 uppercase tracking-widest">Local Setup</div>
+            <h2 class="text-3xl font-extrabold mb-3 text-white">Open Your Local Port</h2>
+            <p class="text-gray-400 text-sm">ZerroAI runs in the browser. To allow it to connect to your local Ollama,<br>you must start your Ollama server with cross-origin enabled.</p>
+          </div>
+
+          <div class="max-w-xl mx-auto w-full space-y-6">
+            <div class="bg-black border border-gray-700 p-5 rounded-xl text-left">
+              <p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Run this command in your terminal:</p>
+              <code class="text-green-400 text-sm font-mono break-all select-all block">OLLAMA_HOST="0.0.0.0" OLLAMA_ORIGINS="*" ollama serve</code>
+            </div>
+            <p class="text-xs text-gray-500 text-center">Make sure the standard Ollama app is fully closed before running this command.</p>
+            
+            <div class="flex gap-4">
+              <button onclick="goToStep1()" class="px-6 py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
+              <button onclick="goToStep3('Ollama')" class="px-6 py-4 bg-purple-600 text-white rounded-xl text-sm font-black hover:bg-purple-500 transition-colors w-2/3 shadow-[0_0_20px_rgba(168,85,247,0.3)]">I'm Running It 🚀</button>
             </div>
           </div>
         </div>
@@ -215,80 +236,6 @@
       </div>
     </div>
   </section>
-  <!-- ===== OTHER EXPERIMENTS SECTION (AUTO-GENERATED) ===== -->
-  <section id="other-experiments" class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-12 text-center">Other Experiments</h2>
-    <div id="repo-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- REPO_LIST_START -->
-          <a href="https://github.com/Benjamin5607/global_culture_risk_dashboard" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">global_culture_risk_dashboard</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">This Python script uses the Groq API to fetch and process data on public figures, groups, and trends, updating an existing database in a loop. It utilizes the `requests` library for HTTP requests, `json` library for JSON data parsing and generation, and `datetime` library for date and time-related operations. The script is designed to continuously update and generate new data.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>HTML</span>
-                <span>2026-03-24</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/readme_generator" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">readme_generator</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">This project, called AI-Powered README & Code Review Generator, automatically generates README files and code reviews for GitHub repositories using the Groq API and Llama 3.1 AI. It provides two tools, a Node.js CLI "analyze.js" and a user-friendly Streamlit web app "app.py", to fetch repository data, analyze it with AI, and create pull requests with the generated content. The project uses Node.js and Python with technologies like Streamlit and the Groq API for AI analysis.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/AI-Sports-Bot" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">AI-Sports-Bot</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">Here's a concise summary of the project in 2-3 short sentences:
-
-AI Sports Edge is a system that uses ESPN and Google News RSS to collect real-time facts and predicts game outcomes through AI analysis. It continuously collects game schedules and news headlines, runs AI predictions, and converts results to three languages (Korean, English, Chinese). The system then sends the predictions to a Discord webhook.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/ai_agent_emily" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">ai_agent_emily</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">Here is a concise summary of the project README in 3 sentences:
-
-Emily AI: PM Agent is a Streamlit application that assists with project management and idea generation using AI-powered tools from Groq and Notion APIs. It supports multiple languages, integrates with various project management methodologies, and generates social media content based on project ideas. The application requires Streamlit, Groq API, Notion API, and Python 3.8+ to run.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/ai_agent_mina_automation" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">ai_agent_mina_automation</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">LOBSTER AGENT is an AI advisor built on Streamlit that automates tool execution and generates results based on user input and AI models. It provides various features such as web search, file control, and social media upload, and requires API keys to be set up in Streamlit Secrets and environment variables. The project utilizes the Streamlit, groq, json, and tools modules.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/global_slang_dictionary" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">global_slang_dictionary</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">This project is a multilingual database that collects and analyzes slang and slur terms across 14 languages to support research in online safety and sociopolitical analysis. It features multilingual slang crawling, semantic analysis, and classification, with integration to Google Sheets, and is optimized for use with large language models (LLMs). The database supports 14 languages.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    <!-- REPO_LIST_END -->
-    </div>
-  </section>
-  <!-- ===== END OF OTHER EXPERIMENTS SECTION ===== -->
-
-  <section class="py-20 px-6 text-center"> <!-- Start Building 섹션입니다. -->
   
   <section class="py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Start Building</h2>
@@ -310,7 +257,7 @@ Emily AI: PM Agent is a Streamlit application that assists with project manageme
       if (modal.classList.contains('hidden')) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-        goToStep1(); // 열 때 무조건 1단계로 초기화
+        goToStep1(); 
       } else {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
@@ -322,6 +269,11 @@ Emily AI: PM Agent is a Streamlit application that assists with project manageme
       document.getElementById('step-1').classList.remove('block');
       document.getElementById('step-2').classList.add('hidden');
       document.getElementById('step-2').classList.remove('block', 'flex');
+      
+      // 🚨 새로 만든 Ollama 전용 스텝도 숨기기 목록에 추가!
+      document.getElementById('step-ollama').classList.add('hidden');
+      document.getElementById('step-ollama').classList.remove('block', 'flex');
+      
       document.getElementById('step-3').classList.add('hidden');
       document.getElementById('step-3').classList.remove('block', 'flex');
     }
@@ -335,11 +287,18 @@ Emily AI: PM Agent is a Streamlit application that assists with project manageme
     function goToStep2(provider) {
       currentProvider = provider;
       document.getElementById('provider-name').innerText = provider;
-      document.getElementById('api-key-input').value = ""; // 입력창 초기화
+      document.getElementById('api-key-input').value = ""; 
       
       hideAllSteps();
       document.getElementById('step-2').classList.add('flex');
       document.getElementById('step-2').classList.remove('hidden');
+    }
+
+    // 🚨 Ollama 선택 시 튀어나오는 전용 화면 함수
+    function goToOllamaStep() {
+      hideAllSteps();
+      document.getElementById('step-ollama').classList.add('flex');
+      document.getElementById('step-ollama').classList.remove('hidden');
     }
 
     function saveAndGoToStep3() {
@@ -349,13 +308,12 @@ Emily AI: PM Agent is a Streamlit application that assists with project manageme
         return;
       }
       
-      // 🚨 사령관님 앱(Zerro AI)과 똑같은 규격으로 로컬스토리지에 몰래 꽂아넣기 ㅋㅋㅋ
       localStorage.setItem(`API_KEY_${currentProvider.toUpperCase()}`, key);
       goToStep3(currentProvider);
     }
 
     function goToStep3(provider) {
-      currentProvider = provider; // Ollama는 2단계 스킵하고 바로 3단계로 오기 때문
+      currentProvider = provider; 
       document.getElementById('final-provider').innerText = currentProvider;
       
       hideAllSteps();
@@ -364,7 +322,6 @@ Emily AI: PM Agent is a Streamlit application that assists with project manageme
     }
 
     function finishSetup() {
-      // 셋업 끝나면 진짜 대시보드로 쏴줍니다!
       window.location.href = "https://zerroai.space";
     }
   </script>
