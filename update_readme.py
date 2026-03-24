@@ -41,7 +41,7 @@ def get_readme_summary(repo_full_name):
                     "content": readme_content,
                 }
             ],
-            model="llama3-8b-8192", # 2026년 3월에 llama-instant가 없다면 llama3-8b-8192가 좋은 대안입니다.
+            model="llama-3.1-8b-instant", # 2026년 3월에 llama-instant가 없다면 llama3-8b-8192가 좋은 대안입니다.
         )
         summary = chat_completion.choices[0].message.content
         return summary.strip()
