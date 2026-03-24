@@ -33,7 +33,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add index.html
           # 변경사항이 있을 때만 커밋하도록 조건 추가
-          if! git diff --staged --quiet; then
+          if ! git diff --staged --quiet; then
             git commit -m "🚀 Auto-update Other Experiments section"
             git push
           else
