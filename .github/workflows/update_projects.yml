@@ -30,15 +30,15 @@ jobs:
       - name: Run update script
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python./update_readme.py
+        run: python ./update_readme.py # <--- 띄어쓰기 최종 수정!
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add index.html
-          # 변경사항이 있을 때만 커밋하도록 조건 추가
-          if! git diff --staged --quiet; then
+          # 변경사항이 있을 때만 커밋하도록 조건 추가 (문법 수정 완료)
+          if ! git diff --staged --quiet; then
             git commit -m "🚀 Auto-update Other Experiments section"
             git push
           else
