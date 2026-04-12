@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZerroAI</title>
+  <title>ZerroAI - Tactical Swarm OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style> body { background: #050505; color: #e5e5e5; } </style>
+  <style> body { background: #050505; color: #e5e5e5; scroll-behavior: smooth; } </style>
 </head>
 
 <body class="font-sans relative">
 
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
-    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-      Build AI systems that choose the best model<br/>at the lowest cost
+  <section class="pt-32 pb-16 flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-blue-900/20 to-indigo-900/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="inline-block px-4 py-1.5 rounded-full bg-blue-900/30 border border-blue-700/50 text-xs text-blue-400 font-bold mb-6 uppercase tracking-widest backdrop-blur-md">
+      Next-Gen AI Orchestration Layer
+    </div>
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
+      Beyond Chatbots. <br/>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Autonomous Swarm OS.</span>
     </h1>
-    <p class="text-lg text-gray-400 max-w-xl mb-8">
-      Stop overpaying for AI. ZerroAI routes every request intelligently.
+    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10">
+      Command multiple specialized AI agents executing tasks in parallel. Integrated with Native LARK/Google ecosystems, Hyper-Search, and Long-Term Vector Memory.
     </p>
 
-    <div class="flex flex-col items-center gap-6 mt-4">
+    <div class="flex flex-col items-center gap-6 z-10">
       <div class="flex gap-4">
         <a href="https://zerroai.space" target="_blank"
-          class="px-8 py-3.5 bg-white text-black rounded-xl font-black shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-all transform hover:-translate-y-1">
-          Try Demo
+          class="px-8 py-3.5 bg-white text-black rounded-xl font-black shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1">
+          Launch Command Center
         </a>
         <a href="#architecture"
           class="px-8 py-3.5 border border-gray-700 bg-gray-900/50 backdrop-blur-sm rounded-xl font-bold hover:bg-gray-800 transition-all">
@@ -30,27 +36,40 @@
         </a>
       </div>
       
-      <button onclick="toggleSetupGuide()" class="group relative px-6 py-3 rounded-full bg-gradient-to-b from-gray-800 to-gray-950 border border-gray-700 hover:border-gray-500 shadow-xl flex items-center gap-3 transition-all transform hover:scale-105 overflow-hidden">
+      <button onclick="toggleSetupGuide()" class="group relative px-6 py-3 rounded-full bg-gradient-to-b from-gray-800 to-gray-950 border border-gray-700 hover:border-gray-500 shadow-xl flex items-center gap-3 transition-all transform hover:scale-105 overflow-hidden mt-2">
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
         <span class="text-xl">🗝️</span> 
-        <span class="text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Unlock Your Agent: No Key? Start Here</span>
+        <span class="text-sm font-bold text-gray-300 group-hover:text-white transition-colors">API Keys Setup Guide</span>
       </button>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 mb-32 relative z-10">
+    <div class="relative rounded-2xl bg-gray-900/50 p-2 border border-gray-800 shadow-[0_0_100px_rgba(59,130,246,0.15)] backdrop-blur-sm">
+      <div class="absolute top-4 left-4 flex gap-2 z-20">
+        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+      </div>
+      <img src="./oneshotguide.png" alt="Zerro AI OS Command Interface" class="w-full rounded-xl border border-gray-800/50 opacity-90 hover:opacity-100 transition-opacity duration-500" />
+      
+      <div class="absolute bottom-6 right-6 bg-black/60 backdrop-blur-md border border-gray-700 p-4 rounded-xl hidden md:block">
+        <p class="text-xs font-mono text-green-400">STATUS: OVERSEER ACTIVE</p>
+        <p class="text-[10px] text-gray-400 font-mono mt-1">> SWARM DEPLOYED (PROMISE.ALL)</p>
+      </div>
     </div>
   </section>
 
   <div id="setup-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center z-50 px-4 transition-opacity duration-300">
     <div class="bg-gradient-to-b from-gray-900 to-[#050505] border border-gray-700 shadow-[0_0_50px_rgba(255,255,255,0.05)] rounded-3xl max-w-2xl w-full p-1 relative overflow-hidden">
-      
       <div class="bg-[#0a0a0a] rounded-[23px] w-full h-full p-8 relative min-h-[450px]">
         <button onclick="toggleSetupGuide()" class="absolute top-5 right-6 text-gray-600 hover:text-white text-3xl font-light transition-colors z-10">&times;</button>
-        
         <div id="step-1" class="block transition-all duration-300">
           <div class="mb-10 text-center">
             <div class="inline-block px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">Step 1 / 3</div>
             <h2 class="text-3xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Choose Your Engine</h2>
             <p class="text-gray-400 text-sm">Get a free API key from your preferred provider.<br>Then click <b>"I have my key"</b> to proceed.</p>
           </div>
-
           <div class="space-y-4">
             <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-green-500/50 hover:bg-green-900/10 transition-all">
               <div class="flex items-center gap-4">
@@ -65,7 +84,6 @@
                 <button onclick="goToStep2('Groq')" class="px-4 py-2 bg-green-500/10 text-green-400 border border-green-500/30 rounded-lg text-xs font-bold hover:bg-green-500 hover:text-black transition-all flex-1">2. I have my key →</button>
               </div>
             </div>
-
             <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all">
               <div class="flex items-center gap-4">
                 <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl font-black">✦</div>
@@ -79,7 +97,6 @@
                 <button onclick="goToStep2('Gemini')" class="px-4 py-2 bg-blue-500/10 text-blue-400 border border-blue-500/30 rounded-lg text-xs font-bold hover:bg-blue-500 hover:text-white transition-all flex-1">2. I have my key →</button>
               </div>
             </div>
-            
             <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-purple-500/50 hover:bg-purple-900/10 transition-all">
               <div class="flex items-center gap-4">
                 <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl font-black">🦙</div>
@@ -95,326 +112,250 @@
             </div>
           </div>
         </div>
-
         <div id="step-2" class="hidden transition-all duration-300 h-full flex flex-col justify-center">
           <div class="mb-10 text-center">
             <div class="inline-block px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">Step 2 / 3</div>
             <h2 class="text-3xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Connect <span id="provider-name" class="text-white">API</span></h2>
             <p class="text-gray-400 text-sm">Paste your secret API key below.<br>It is stored locally on your device.</p>
           </div>
-
           <div class="max-w-md mx-auto w-full space-y-6">
             <input type="password" id="api-key-input" placeholder="sk-..." class="w-full bg-gray-900 border border-gray-700 text-white px-5 py-4 rounded-xl outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono">
-            
             <div class="flex gap-4">
               <button onclick="goToStep1()" class="px-6 py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
               <button onclick="saveAndGoToStep3()" class="px-6 py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-colors w-2/3 shadow-[0_0_20px_rgba(255,255,255,0.2)]">Verify & Save 🚀</button>
             </div>
           </div>
         </div>
-
         <div id="step-ollama" class="hidden transition-all duration-300 h-full flex flex-col justify-center">
           <div class="mb-8 text-center">
             <div class="inline-block px-4 py-1.5 rounded-full bg-purple-900/30 border border-purple-700 text-xs text-purple-400 font-bold mb-4 uppercase tracking-widest">Local Setup</div>
             <h2 class="text-3xl font-extrabold mb-3 text-white">Open Your Local Port</h2>
             <p class="text-gray-400 text-sm">ZerroAI runs in the browser. To allow it to connect to your local Ollama,<br>you must start your Ollama server with cross-origin enabled.</p>
           </div>
-
           <div class="max-w-xl mx-auto w-full space-y-6">
             <div class="bg-black border border-gray-700 p-5 rounded-xl text-left">
               <p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Run this command in your terminal:</p>
               <code class="text-green-400 text-sm font-mono break-all select-all block">OLLAMA_HOST="0.0.0.0" OLLAMA_ORIGINS="*" ollama serve</code>
             </div>
             <p class="text-xs text-gray-500 text-center">Make sure the standard Ollama app is fully closed before running this command.</p>
-            
             <div class="flex gap-4">
               <button onclick="goToStep1()" class="px-6 py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
               <button onclick="goToStep3('Ollama')" class="px-6 py-4 bg-purple-600 text-white rounded-xl text-sm font-black hover:bg-purple-500 transition-colors w-2/3 shadow-[0_0_20px_rgba(168,85,247,0.3)]">I'm Running It 🚀</button>
             </div>
           </div>
         </div>
-
         <div id="step-3" class="hidden transition-all duration-300 h-full flex flex-col justify-center items-center text-center">
           <div class="mb-6">
             <div class="w-24 h-24 bg-green-500/10 border-2 border-green-500 text-green-400 rounded-full flex items-center justify-center text-5xl mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.3)]">✓</div>
             <h2 class="text-3xl font-extrabold mb-3 text-white">Agent Activated!</h2>
             <p class="text-gray-400 text-sm">Your <span id="final-provider" class="text-white font-bold"></span> engine is fully operational.<br>You are ready to build.</p>
           </div>
-
           <button onclick="finishSetup()" class="mt-4 px-10 py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transform">
             Enter Dashboard →
           </button>
         </div>
-
-      </div>
-    </div>
-  </div>
-  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6">What is ZerroAI?</h2>
-    <p class="text-gray-400 text-lg">
-      ZerroAI is an AI orchestration layer that routes tasks across local, free, and premium models.
-      Build autonomous workflows without worrying about cost, performance, or vendor lock-in.
-    </p>
-  </section>
-
-  <section class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-12 text-center">Core Systems</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-        <h3 class="text-xl mb-2">Smart AI Routing</h3>
-        <p class="text-gray-400">Automatically choose between local, free, and paid models.</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-        <h3 class="text-xl mb-2">Plug Anything</h3>
-        <p class="text-gray-400">Connect Slack, Discord, GitHub with modular plugins.</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-        <h3 class="text-xl mb-2">AI Agents</h3>
-        <p class="text-gray-400">Persona-driven agents with roles, tone, and validation logic.</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-        <h3 class="text-xl mb-2">Hybrid LLM</h3>
-        <p class="text-gray-400">Combine local models with API-based intelligence.</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-        <h3 class="text-xl mb-2">Parallel Execution</h3>
-        <p class="text-gray-400">Multi-agent workflows with job queues and async processing.</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-        <h3 class="text-xl mb-2">Control Everything</h3>
-        <p class="text-gray-400">Control external automation systems from one place.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-10">How It Works</h2>
-    <div class="space-y-4 text-gray-400 text-lg">
-      <p>1. Create an agent</p>
-      <p>2. Assign persona</p>
-      <p>3. Connect tools</p>
-      <p>4. Send request</p>
-      <p class="text-white font-bold">5. ZerroAI routes & executes automatically</p>
-    </div>
-  </section>
-
-  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6">Smart Cost Routing</h2>
-    <p class="text-gray-400 mb-6">Every request is dynamically routed to the most efficient AI provider.</p>
-    <div class="text-gray-400 text-lg font-mono bg-gray-900 p-4 rounded-xl inline-block border border-gray-800">
-      Request → Router → Local / Free / Premium
-    </div>
-  </section>
-
-  <section id="architecture" class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-12 text-center">System Architecture</h2>
-    <div class="grid md:grid-cols-3 gap-6 text-sm">
-      <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="mb-2 font-semibold">Frontend</h3>
-        <p class="text-gray-400">React + Vite</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="mb-2 font-semibold">Backend</h3>
-        <p class="text-gray-400">NestJS + WebSocket</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="mb-2 font-semibold">LLM Layer</h3>
-        <p class="text-gray-400">Ollama + External APIs</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="mb-2 font-semibold">Queue</h3>
-        <p class="text-gray-400">BullMQ + Redis</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="mb-2 font-semibold">Database</h3>
-        <p class="text-gray-400">SQLite + Prisma</p>
-      </div>
-      <div class="border border-gray-800 p-6 rounded-xl">
-        <h3 class="mb-2 font-semibold">Monitoring</h3>
-        <p class="text-gray-400">Prometheus + Grafana</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="manual" class="py-20 px-6 max-w-6xl mx-auto border-t border-gray-900">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl font-black mb-4 tracking-tighter uppercase">Tactical Operations Manual</h2>
-    <p class="text-gray-500 font-bold uppercase tracking-widest text-sm">Strategic OS: Empowering Commanders with AI Orchestration</p>
-  </div>
-
-  <div class="mb-12 bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 shadow-2xl">
-    <h3 class="text-2xl font-black mb-6 text-white flex items-center gap-3">
-      <span class="text-blue-500">0.</span> SYSTEM CONFIGURATION
-    </h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="space-y-2 border-l border-gray-800 pl-4">
-        <div class="text-blue-400 text-xs font-black uppercase tracking-widest">Platform OS</div>
-        <p class="text-sm text-gray-400 font-medium">Select your workspace: <b>Lark, Google, or ZerroAI Native</b>. This defines where the data flows.</p>
-      </div>
-      <div class="space-y-2 border-l border-gray-800 pl-4">
-        <div class="text-purple-400 text-xs font-black uppercase tracking-widest">Brain (Model)</div>
-        <p class="text-sm text-gray-400 font-medium">Deploy the primary LLM (GPT-4o, Claude, DeepSeek). Swap intelligence based on task weight.</p>
-      </div>
-      <div class="space-y-2 border-l border-gray-800 pl-4">
-        <div class="text-green-400 text-xs font-black uppercase tracking-widest">Database</div>
-        <p class="text-sm text-gray-400 font-medium">Choose your memory storage. Securely archive or retrieve vector-based project contexts.</p>
-      </div>
-      <div class="space-y-2 border-l border-gray-800 pl-4">
-        <div class="text-amber-400 text-xs font-black uppercase tracking-widest">Chief Secretary</div>
-        <p class="text-sm text-gray-400 font-medium">Assign a summary expert (Groq, Gemini, Ollama) to synthesize chaotic logs into reports.</p>
       </div>
     </div>
   </div>
 
-  <div class="grid lg:grid-cols-3 gap-8">
-    <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 hover:border-blue-500/50 transition-all group flex flex-col">
-      <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform text-2xl">🤝</div>
-      <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-tight">Phase 1: Strategic Meeting</h3>
-      <p class="text-sm text-gray-400 leading-relaxed mb-6">
-        Execute a strict 7-step collaborative protocol to transform raw ideas into approved mission plans.
-      </p>
-      <div class="mt-auto space-y-3">
-        <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-blue-900/5 transition-colors">
-          <p class="text-[10px] text-blue-500 font-black mb-1 uppercase tracking-widest">7-Step Protocol</p>
-          <p class="text-xs text-gray-400">Fact-checking (via ##Search##) → Drafting → Cross-Review → Final Recommendation for the Commander.</p>
+  <section class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-black mb-4 tracking-tighter">Engineered for Technical Superiority</h2>
+      <p class="text-gray-500 font-bold uppercase tracking-widest text-sm">Powered by Next.js, Swarm Logic, and Vector DB</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="border border-gray-800 bg-[#0a0a0a] p-8 rounded-2xl hover:border-blue-500/50 transition-all group">
+        <div class="text-3xl mb-4 group-hover:-translate-y-1 transition-transform">🐝</div>
+        <h3 class="text-xl font-bold mb-3">Parallel Swarm Execution</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          The <b>Overseer</b> dynamically analyzes dependencies and deploys specialized sub-agents via <code class="text-blue-400 bg-blue-900/30 px-1 rounded">Promise.all</code>. Independent tasks are executed simultaneously, shattering the limits of linear AI logic.
+        </p>
+      </div>
+      <div class="border border-gray-800 bg-[#0a0a0a] p-8 rounded-2xl hover:border-green-500/50 transition-all group">
+        <div class="text-3xl mb-4 group-hover:-translate-y-1 transition-transform">🧠</div>
+        <h3 class="text-xl font-bold mb-3">Supabase Vector RAG</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Long-term memory architecture utilizing <b>pgvector</b> and Gemini Embeddings. Heavy contexts are auto-compressed via LLM before vectorization, completely preventing context window explosion.
+        </p>
+      </div>
+      <div class="border border-gray-800 bg-[#0a0a0a] p-8 rounded-2xl hover:border-purple-500/50 transition-all group">
+        <div class="text-3xl mb-4 group-hover:-translate-y-1 transition-transform">🌐</div>
+        <h3 class="text-xl font-bold mb-3">Hyper-Search Engine</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Consolidated <code class="text-purple-400 bg-purple-900/30 px-1 rounded">FREE_SEARCH</code> mechanism. A single pipeline that autonomously routes queries across Wikipedia, News APIs, and academic papers without archaic web scrapers or 403 errors.
+        </p>
+      </div>
+      <div class="border border-gray-800 bg-[#0a0a0a] p-8 rounded-2xl hover:border-indigo-500/50 transition-all group">
+        <div class="text-3xl mb-4 group-hover:-translate-y-1 transition-transform">⚙️</div>
+        <h3 class="text-xl font-bold mb-3">Native JSON Function Calling</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Deprecated fragile markdown tag parsing. ZerroAI enforces strict, robust Native JSON schemas for tool execution, guaranteeing zero parameter parsing errors across 50+ tool sets.
+        </p>
+      </div>
+      <div class="border border-gray-800 bg-[#0a0a0a] p-8 rounded-2xl hover:border-amber-500/50 transition-all group">
+        <div class="text-3xl mb-4 group-hover:-translate-y-1 transition-transform">🔄</div>
+        <h3 class="text-xl font-bold mb-3">ReAct & MCP Architecture</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Agents operate on the <b>Reasoning + Acting</b> loop, allowing auto-repair upon API failures. Fully prepared for Model Context Protocol (MCP) for dynamic, server-based tool discovery.
+        </p>
+      </div>
+      <div class="border border-gray-800 bg-[#0a0a0a] p-8 rounded-2xl hover:border-teal-500/50 transition-all group">
+        <div class="text-3xl mb-4 group-hover:-translate-y-1 transition-transform">🏢</div>
+        <h3 class="text-xl font-bold mb-3">Context-Aware Ecosystems</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Toggle between <b>LARK (Feishu)</b> or <b>Google Workspace</b>. The Overseer adapts its bias in real-time, routing final reports exclusively to Lark Docs, Bases, or Slack depending on your active OS.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="py-20 px-6 bg-[#080808] border-y border-gray-900">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-12 text-center">Next-Gen Tech Stack</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="p-6 border border-gray-800 rounded-xl bg-black">
+          <div class="text-xl font-black mb-2 text-white">Next.js 14</div>
+          <div class="text-xs text-gray-500 font-mono">App Router / Serverless</div>
         </div>
-        <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-blue-900/5 transition-colors">
-          <p class="text-[10px] text-blue-500 font-black mb-1 uppercase tracking-widest">One-Pager Reports</p>
-          <p class="text-xs text-gray-400">The Secretary generates high-density Markdown reports: Executive Summary, Action Plan, and Insights.</p>
+        <div class="p-6 border border-gray-800 rounded-xl bg-black">
+          <div class="text-xl font-black mb-2 text-green-400">Supabase</div>
+          <div class="text-xs text-gray-500 font-mono">pgvector / Auth / DB</div>
+        </div>
+        <div class="p-6 border border-gray-800 rounded-xl bg-black">
+          <div class="text-xl font-black mb-2 text-blue-400">Turbopack</div>
+          <div class="text-xs text-gray-500 font-mono">Ultra-fast Bundling</div>
+        </div>
+        <div class="p-6 border border-gray-800 rounded-xl bg-black">
+          <div class="text-xl font-black mb-2 text-purple-400">Tailwind V4</div>
+          <div class="text-xs text-gray-500 font-mono">Utility-first Styling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="manual" class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-black mb-4 tracking-tighter uppercase">Tactical Operations Manual</h2>
+      <p class="text-gray-500 font-bold uppercase tracking-widest text-sm">Strategic OS: Empowering Commanders with AI Orchestration</p>
+    </div>
+
+    <div class="mb-12 bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 shadow-2xl">
+      <h3 class="text-2xl font-black mb-6 text-white flex items-center gap-3">
+        <span class="text-blue-500">0.</span> SYSTEM CONFIGURATION
+      </h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="space-y-2 border-l border-gray-800 pl-4">
+          <div class="text-blue-400 text-xs font-black uppercase tracking-widest">Platform OS</div>
+          <p class="text-sm text-gray-400 font-medium">Select your workspace: <b>Lark, Google, or Native</b>. Overseer routes outputs strictly to the chosen ecosystem.</p>
+        </div>
+        <div class="space-y-2 border-l border-gray-800 pl-4">
+          <div class="text-purple-400 text-xs font-black uppercase tracking-widest">Brain (Model)</div>
+          <p class="text-sm text-gray-400 font-medium">Deploy the primary LLM (Groq, Gemini, Ollama). Swap intelligence seamlessly based on task complexity.</p>
+        </div>
+        <div class="space-y-2 border-l border-gray-800 pl-4">
+          <div class="text-green-400 text-xs font-black uppercase tracking-widest">Vector Database</div>
+          <p class="text-sm text-gray-400 font-medium">Connect Supabase to unlock RAG. Agents recall past contexts with pinpoint accuracy.</p>
+        </div>
+        <div class="space-y-2 border-l border-gray-800 pl-4">
+          <div class="text-amber-400 text-xs font-black uppercase tracking-widest">Hyper-Search</div>
+          <p class="text-sm text-gray-400 font-medium">Equip agents with FREE_SEARCH, replacing 10+ fragile scrapers with one god-tier data pipeline.</p>
         </div>
       </div>
     </div>
 
-    <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 hover:border-green-500/50 transition-all group flex flex-col">
-      <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 mb-6 group-hover:scale-110 transition-transform text-2xl">🎙️</div>
-      <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-tight">Phase 2: Tactical Chat</h3>
-      <p class="text-sm text-gray-400 leading-relaxed mb-6">
-        Direct command with 1:1 agents. From real-time troubleshooting to automated recurring task scheduling.
-      </p>
-      <div class="mt-auto space-y-3">
-        <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-green-900/5 transition-colors">
-          <p class="text-[10px] text-green-500 font-black mb-1 uppercase tracking-widest">Autonomous Scheduling</p>
-          <p class="text-xs text-gray-400">Use the Schedule Picker to automate repetitive reports (Daily/Weekly) without manual input.</p>
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 hover:border-blue-500/50 transition-all group flex flex-col">
+        <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform text-2xl">🤝</div>
+        <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-tight">Phase 1: Linear Precision</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Execute a strict, <b>waterfall workflow</b> using Linear Canvas. Perfect for operations requiring absolute human oversight and sequential accuracy.
+        </p>
+        <div class="mt-auto space-y-3">
+          <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-blue-900/5 transition-colors">
+            <p class="text-[10px] text-blue-500 font-black mb-1 uppercase tracking-widest">Step-by-Step Approval</p>
+            <p class="text-xs text-gray-400">Fact-checking → Drafting → Final Recommendation. Move to the next node only when validated.</p>
+          </div>
         </div>
-        <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-green-900/5 transition-colors">
-          <p class="text-[10px] text-green-500 font-black mb-1 uppercase tracking-widest">Long-Term Memory</p>
-          <p class="text-xs text-gray-400">Agents retain summaries of past work. Ask about previous tasks with zero loss in context.</p>
+      </div>
+
+      <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 hover:border-green-500/50 transition-all group flex flex-col">
+        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 mb-6 group-hover:scale-110 transition-transform text-2xl">⚡</div>
+        <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-tight">Phase 2: Swarm Engine</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Call upon <b>@Overseer</b> in the chat. It autonomously dissects your objective and dispatches sub-agents in parallel to crush tasks instantly.
+        </p>
+        <div class="mt-auto space-y-3">
+          <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-green-900/5 transition-colors">
+            <p class="text-[10px] text-green-500 font-black mb-1 uppercase tracking-widest">Auto-Routing & ReAct</p>
+            <p class="text-xs text-gray-400">Agents self-correct API failures. Context is shared via internal Memory Bus across the swarm.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 hover:border-red-500/50 transition-all group flex flex-col">
+        <div class="w-12 h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-400 mb-6 group-hover:scale-110 transition-transform text-2xl">🚀</div>
+        <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-tight">Phase 3: Native Output</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Finalize intelligence and deploy to action. The ecosystem writes directly into your company's actual database.
+        </p>
+        <div class="mt-auto space-y-3">
+          <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-red-900/5 transition-colors">
+            <p class="text-[10px] text-red-500 font-black mb-1 uppercase tracking-widest">Lark Bitable Integration</p>
+            <p class="text-xs text-gray-400">Automatically creates Bitable records, sets up Notion databases, or sends structured Slack briefings.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 hover:border-red-500/50 transition-all group flex flex-col">
-      <div class="w-12 h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-400 mb-6 group-hover:scale-110 transition-transform text-2xl">🚀</div>
-      <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-tight">Phase 3: Operational Sync</h3>
-      <p class="text-sm text-gray-400 leading-relaxed mb-6">
-        Finalize intelligence and deploy to action. Seamlessly bridge discussion into trackable execution.
-      </p>
-      <div class="mt-auto space-y-3">
-        <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-red-900/5 transition-colors">
-          <p class="text-[10px] text-red-500 font-black mb-1 uppercase tracking-widest">Linear Ticket Routing</p>
-          <p class="text-xs text-gray-400">Convert the Secretary’s 'Action Plan' into Linear Issues with metadata automatically attached.</p>
-        </div>
-        <div class="p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-red-900/5 transition-colors">
-          <p class="text-[10px] text-red-500 font-black mb-1 uppercase tracking-widest">Multi-Channel Export</p>
-          <p class="text-xs text-gray-400">Instantly broadcast reports to Lark Docs, Notion, or Discord via the tactical export buttons.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-12 p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-[2rem] flex flex-col md:flex-row items-center gap-8 shadow-inner">
-    <div class="flex gap-3">
-      <span class="px-4 py-1.5 bg-red-600 text-white text-[10px] font-black rounded-full shadow-lg shadow-red-500/20 uppercase tracking-tighter">💣 Reset Room</span>
-      <span class="px-4 py-1.5 bg-amber-500 text-white text-[10px] font-black rounded-full shadow-lg shadow-amber-500/20 uppercase tracking-tighter">⏳ Thinking</span>
-    </div>
-    <p class="text-sm text-indigo-200 font-medium">
-      <span class="text-white font-black underline decoration-indigo-500 underline-offset-4 tracking-tight">MISSION PROTOCOL:</span> 
-      Avoid input spam when agents are <b>THINKING</b> to maintain logic stability. Use <b>RESET</b> only for tactical pivots or mission failures.
-    </p>
-  </div>
-</section>
-
-  <section id="other-experiments" class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-12 text-center">Other Experiments</h2>
+  <section id="other-experiments" class="py-20 px-6 max-w-6xl mx-auto border-t border-gray-900">
+    <h2 class="text-3xl font-bold mb-12 text-center">Legacy Projects & Experiments</h2>
     <div id="repo-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <a href="https://github.com/Benjamin5607/global_culture_risk_dashboard" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">global_culture_risk_dashboard</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">This Python script uses the Groq API to fetch and process data on public figures, groups, and trends, updating an existing database in a loop. It utilizes the `requests` library for HTTP requests, `json` library for JSON data parsing and generation, and `datetime` library for date and time-related operations. The script is designed to continuously update and generate new data.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>HTML</span>
-                <span>2026-03-24</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/readme_generator" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">readme_generator</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">This project, called AI-Powered README & Code Review Generator, automatically generates README files and code reviews for GitHub repositories using the Groq API and Llama 3.1 AI. It provides two tools, a Node.js CLI "analyze.js" and a user-friendly Streamlit web app "app.py", to fetch repository data, analyze it with AI, and create pull requests with the generated content. The project uses Node.js and Python with technologies like Streamlit and the Groq API for AI analysis.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/AI-Sports-Bot" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">AI-Sports-Bot</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">Here's a concise summary of the project in 2-3 short sentences:
-
-AI Sports Edge is a system that uses ESPN and Google News RSS to collect real-time facts and predicts game outcomes through AI analysis. It continuously collects game schedules and news headlines, runs AI predictions, and converts results to three languages (Korean, English, Chinese). The system then sends the predictions to a Discord webhook.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/ai_agent_emily" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">ai_agent_emily</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">Here is a concise summary of the project README in 3 sentences:
-
-Emily AI: PM Agent is a Streamlit application that assists with project management and idea generation using AI-powered tools from Groq and Notion APIs. It supports multiple languages, integrates with various project management methodologies, and generates social media content based on project ideas. The application requires Streamlit, Groq API, Notion API, and Python 3.8+ to run.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/ai_agent_mina_automation" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">ai_agent_mina_automation</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">LOBSTER AGENT is an AI advisor built on Streamlit that automates tool execution and generates results based on user input and AI models. It provides various features such as web search, file control, and social media upload, and requires API keys to be set up in Streamlit Secrets and environment variables. The project utilizes the Streamlit, groq, json, and tools modules.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
-    
-          <a href="https://github.com/Benjamin5607/global_slang_dictionary" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
-            <h3 class="text-xl font-bold mb-2 truncate">global_slang_dictionary</h3>
-            <p class="text-gray-400 text-sm h-16 overflow-hidden">This project is a multilingual database that collects and analyzes slang and slur terms across 14 languages to support research in online safety and sociopolitical analysis. It features multilingual slang crawling, semantic analysis, and classification, with integration to Google Sheets, and is optimized for use with large language models (LLMs). The database supports 14 languages.</p>
-            <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
-                <span>⭐ 0</span>
-                <span>Python</span>
-                <span>2026-03-23</span>
-            </div>
-          </a>
+        <h3 class="text-xl font-bold mb-2 truncate">global_culture_risk_dashboard</h3>
+        <p class="text-gray-400 text-sm h-16 overflow-hidden">This Python script uses the Groq API to fetch and process data on public figures, groups, and trends...</p>
+      </a>
+      <a href="https://github.com/Benjamin5607/readme_generator" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold mb-2 truncate">readme_generator</h3>
+        <p class="text-gray-400 text-sm h-16 overflow-hidden">Automatically generates README files and code reviews for GitHub repositories using Groq and Llama 3.1...</p>
+      </a>
+      <a href="https://github.com/Benjamin5607/AI-Sports-Bot" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold mb-2 truncate">AI-Sports-Bot</h3>
+        <p class="text-gray-400 text-sm h-16 overflow-hidden">AI Sports Edge is a system that uses ESPN and Google News RSS to collect real-time facts and predicts game outcomes...</p>
+      </a>
+      <a href="https://github.com/Benjamin5607/ai_agent_emily" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold mb-2 truncate">ai_agent_emily</h3>
+        <p class="text-gray-400 text-sm h-16 overflow-hidden">Emily AI: PM Agent is a Streamlit application that assists with project management and idea generation...</p>
+      </a>
+      <a href="https://github.com/Benjamin5607/ai_agent_mina_automation" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold mb-2 truncate">ai_agent_mina_automation</h3>
+        <p class="text-gray-400 text-sm h-16 overflow-hidden">LOBSTER AGENT automates tool execution and generates results based on user input and AI models...</p>
+      </a>
+      <a href="https://github.com/Benjamin5607/global_slang_dictionary" target="_blank" class="block border border-gray-800 p-6 rounded-xl hover:border-blue-500/50 hover:bg-blue-900/10 transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold mb-2 truncate">global_slang_dictionary</h3>
+        <p class="text-gray-400 text-sm h-16 overflow-hidden">A multilingual database that collects and analyzes slang and slur terms across 14 languages to support research...</p>
+      </a>
     </div>
   </section>
-  <section class="py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Start Building</h2>
+
+  <section class="py-32 px-6 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none"></div>
+    <h2 class="text-4xl font-extrabold mb-6">Initialize the Swarm</h2>
+    <p class="text-gray-400 mb-10 text-lg">Your autonomous agents are waiting for commands.</p>
     <a href="https://zerroai.space" target="_blank"
-      class="inline-block px-8 py-4 bg-white text-black rounded-xl text-lg font-bold hover:opacity-80 transition-opacity">
-      Launch ZerroAI
+      class="inline-block px-10 py-5 bg-white text-black rounded-xl text-lg font-black hover:opacity-80 transition-all shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 transform">
+      Deploy System Now
     </a>
   </section>
 
-  <footer class="py-10 text-center text-gray-600 text-sm border-t border-gray-900 mt-10">
-    Built by Wonbin — AI System Builder
+  <footer class="py-10 text-center text-gray-600 text-sm border-t border-gray-900 bg-black">
+    <p class="font-bold">Built by Wonbin — Tactical AI System Architect</p>
+    <p class="mt-2 opacity-50">Zerro AI OS © 2026</p>
   </footer>
 
   <script>
+    // 기존 스크립트 코드 그대로 유지
     let currentProvider = "";
 
     function toggleSetupGuide() {
@@ -486,6 +427,5 @@ Emily AI: PM Agent is a Streamlit application that assists with project manageme
       window.location.href = "https://zerroai.space";
     }
   </script>
-  
 </body>
 </html>
