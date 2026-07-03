@@ -1,8 +1,8 @@
 # Zerro AI Landing
 
-Zerro AI Landing is the public landing page repository for **Zerro AI OS**, a tactical AI orchestration concept positioned as an autonomous swarm operating system for technical teams. The page introduces the product vision, shows the command-center experience, explains the setup flow, and links users to the live workspace at [zerroai.space](https://zerroai.space).
+Zerro AI Landing is the public landing page repository for **Zerro AI OS**, a next-gen multi-agent automation studio positioned as a Workspace OS for technical teams. The page introduces the product vision, shows the Linear Pipeline command center, explains the one-shot setup flow, and links users to the live workspace at [zerroai.space](https://zerroai.space).
 
-> Beyond chatbots. Autonomous Swarm OS.
+> Beyond chatbots. Workspace OS.
 
 ## Table of Contents
 
@@ -83,19 +83,19 @@ The landing page highlights ecosystem switching between Lark, Google, and Native
 
 ## User Journey
 
-The page communicates a three-step onboarding flow:
+The page communicates a four-step one-shot onboarding flow:
 
-1. **System Config**
-   - Select the base workspace OS: Lark, Google, or Native.
-   - Choose the primary model provider: Groq, Gemini, or Ollama.
+1. **Agent Creation**
+   - Create agents tailored to your goals with basic system settings.
 
-2. **Add Data**
-   - Add API keys for external data access.
-   - Connect optional systems such as Supabase for vector memory.
+2. **Persona Setting**
+   - Define clear persona, goals, and background for each agent.
 
-3. **Hire Agents**
-   - Assign specialized personas to operational functions.
-   - Let the Overseer route work to the right agents.
+3. **Tool Connection**
+   - Securely connect external tools and data via MCP protocol.
+
+4. **Execution & Report**
+   - Swarm Engine runs in parallel and generates a final data report.
 
 The tactical operations manual then frames the user workflow in three phases:
 
@@ -311,7 +311,7 @@ Recommended deployment settings:
 
 Use this checklist when updating the landing page:
 
-- [ ] Confirm the hero message still matches the product direction.
+- [ ] Confirm the hero message still matches the product direction (Workspace OS / Multi-Agent Automation Studio).
 - [ ] Verify the `Launch Command Center` and `Deploy System Now` links point to the correct live app.
 - [ ] Check that `UI.png` and `oneshotguide.png` match the current interface.
 - [ ] Keep the feature cards aligned with implemented or planned Zerro AI capabilities.
