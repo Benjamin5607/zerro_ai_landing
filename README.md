@@ -205,34 +205,25 @@ npx http-server .
 
 ## API Key Setup Flow
 
-The landing page includes an interactive setup modal opened by the **API Keys Setup Guide** button.
+The landing page includes the **Zerro API Workshop** modal (opened via the **API Workshop** button), matching the live app at [zerroai.space](https://zerroai.space).
 
-Supported setup paths:
+### Supported LLM Providers
 
-- **Groq**
-  - Recommended in the UI.
-  - Users are sent to <https://console.groq.com/>.
-  - The entered key is stored in browser `localStorage` as `API_KEY_GROQ`.
+**Free tier (13):** Groq, NVIDIA NIM, Cerebras, Google Gemini, Mistral, OpenRouter, Together AI, DeepSeek, SambaNova, Fireworks AI, GitHub Models, Hugging Face, Qwen (DashScope)
 
-- **Gemini**
-  - Users are sent to <https://aistudio.google.com/app/apikey>.
-  - The entered key is stored in browser `localStorage` as `API_KEY_GEMINI`.
+**Paid tier (3):** OpenAI, Claude (Anthropic), Grok (xAI)
 
-- **Ollama**
-  - Users are sent to <https://ollama.com>.
-  - The UI instructs local users to run:
+**Local:** Ollama
 
-    ```bash
-    OLLAMA_HOST="0.0.0.0" OLLAMA_ORIGINS="*" ollama serve
-    ```
+### How it works
 
-  - After confirmation, the setup flow marks the local engine as active.
+1. User selects a provider from free-tier pills or the dropdown.
+2. Provider info (free tier limits, key format) and signup link are shown.
+3. User enters their API key and clicks **Start instantly**.
+4. The modal attempts to save via `https://zerroai.space/api/auth/save-key` (backend HttpOnly cookie vault).
+5. User is redirected to the live dashboard to complete setup.
 
-After setup, the modal redirects users to:
-
-```text
-https://zerroai.space
-```
+> API keys are no longer stored in browser `localStorage`. The live app uses a Vercel backend proxy with HttpOnly cookie storage.
 
 ## Automated Project Card Updates
 
