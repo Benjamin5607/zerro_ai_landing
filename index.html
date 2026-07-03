@@ -44,10 +44,10 @@
         <span class="font-bold text-white text-sm sm:text-base">Zerro <span class="text-gray-500 font-medium">AI</span></span>
       </a>
       <div class="hidden md:flex items-center gap-6 text-sm text-gray-400">
-        <a href="#features" class="hover:text-white transition-colors">Features</a>
-        <a href="#pipeline" class="hover:text-white transition-colors">Pipeline</a>
+        <a href="#features" class="hover:text-white transition-colors">Capabilities</a>
+        <a href="#pipeline" class="hover:text-white transition-colors">Agents</a>
         <a href="#setup" class="hover:text-white transition-colors">Setup</a>
-        <a href="#manual" class="hover:text-white transition-colors">Manual</a>
+        <a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
       </div>
       <div class="flex items-center gap-2 sm:gap-3">
         <button onclick="toggleSetupGuide()" class="hidden sm:inline-flex px-3 py-2 text-xs font-bold text-gray-400 hover:text-white border border-gray-800 rounded-lg hover:border-gray-600 transition-all">
@@ -120,11 +120,11 @@
     <p class="text-center text-xs sm:text-sm text-gray-600 mt-4">Visual workflow builder with AI Auto-Plan, live mission monitoring, and tactical presets.</p>
   </section>
 
-  <!-- Features -->
+  <!-- Capabilities -->
   <section id="features" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
     <div class="text-center mb-10 sm:mb-16">
-      <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-4 tracking-tight">Engineered for Technical Superiority</h2>
-      <p class="text-gray-500 font-bold uppercase tracking-widest text-[10px] sm:text-sm">Next.js · Swarm Logic · Vector DB · MCP</p>
+      <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-4 tracking-tight">Built for Real Workflows</h2>
+      <p class="text-gray-500 font-medium text-sm sm:text-base max-w-2xl mx-auto">An orchestration layer that turns AI from a chat window into a coordinated workspace system.</p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -132,42 +132,42 @@
         <div class="text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform">🐝</div>
         <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Parallel Swarm Execution</h3>
         <p class="text-gray-400 text-sm leading-relaxed">
-          The <b>Overseer</b> analyzes dependencies and deploys sub-agents via <code class="text-blue-400 bg-blue-900/30 px-1 rounded text-xs">Promise.all</code>. Independent tasks run simultaneously — no more linear bottlenecks.
+          The Overseer breaks complex goals into independent tasks and runs them in parallel — so your team moves faster than single-threaded chat workflows.
         </p>
       </div>
       <div class="border border-gray-800 bg-[#0a0a0a] p-6 sm:p-8 rounded-2xl hover:border-violet-500/50 transition-all group">
         <div class="text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform">🔗</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Linear Pipeline Builder</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Visual Pipeline Builder</h3>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Drag-and-drop mission steps with <b>AI Auto-Plan</b>. Assign agents, weapons (tools), and directives — then deploy the full tactical pipeline in one click.
+          Design multi-step missions on a canvas, assign the right agents and tools, and let AI Auto-Plan fill in the rest before you deploy.
         </p>
       </div>
       <div class="border border-gray-800 bg-[#0a0a0a] p-6 sm:p-8 rounded-2xl hover:border-green-500/50 transition-all group">
         <div class="text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform">🧠</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Supabase Vector RAG</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Long-Term Memory</h3>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Long-term memory with <b>pgvector</b> and Gemini embeddings. Contexts are LLM-compressed before vectorization to prevent window explosion.
+          Agents remember past work, decisions, and context — so every new task builds on what came before, not from scratch.
         </p>
       </div>
       <div class="border border-gray-800 bg-[#0a0a0a] p-6 sm:p-8 rounded-2xl hover:border-purple-500/50 transition-all group">
         <div class="text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform">🌐</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Hyper-Search Engine</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Unified Research</h3>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Unified <code class="text-purple-400 bg-purple-900/30 px-1 rounded text-xs">FREE_SEARCH</code> routes queries across DDG, Wikipedia, News APIs, Tavily, and academic sources — no fragile scrapers.
+          One search layer across web, news, encyclopedias, and academic sources — giving agents reliable external context without brittle scrapers.
         </p>
       </div>
       <div class="border border-gray-800 bg-[#0a0a0a] p-6 sm:p-8 rounded-2xl hover:border-indigo-500/50 transition-all group">
         <div class="text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform">⚙️</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Native JSON Function Calling</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Reliable Tool Execution</h3>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Strict JSON schemas replace fragile markdown tag parsing. Zero parameter errors across 50+ tool integrations.
+          Structured tool calls across 50+ integrations — from messaging and docs to databases and dev tools — with consistent, predictable outputs.
         </p>
       </div>
       <div class="border border-gray-800 bg-[#0a0a0a] p-6 sm:p-8 rounded-2xl hover:border-amber-500/50 transition-all group">
         <div class="text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform">🔄</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">ReAct & MCP Architecture</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Self-Correcting Agents</h3>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Agents follow <b>Reasoning + Acting</b> loops with auto-repair on API failures. MCP-ready for dynamic server-based tool discovery.
+          Agents reason through failures, retry intelligently, and recover from API errors — keeping missions on track without manual intervention.
         </p>
       </div>
     </div>
@@ -212,7 +212,8 @@
       <!-- Connected Tools -->
       <div class="text-center mb-8 sm:mb-10">
         <div class="inline-block px-3 py-1 rounded-full bg-green-900/30 border border-green-700/50 text-[10px] sm:text-xs text-green-400 font-bold uppercase tracking-widest mb-4">MCP Integrations</div>
-        <h3 class="text-xl sm:text-3xl font-extrabold">Connected <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Tool Arsenal</span></h3>
+        <h3 class="text-xl sm:text-3xl font-extrabold">Connected <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Integrations</span></h3>
+        <p class="text-gray-500 text-xs sm:text-sm mt-2 max-w-xl mx-auto">Plug agents into the tools your team already uses — search, docs, messaging, databases, and dev platforms.</p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 max-w-4xl mx-auto">
@@ -314,97 +315,126 @@
     </div>
   </section>
 
-  <!-- Tactical Manual -->
+  <!-- How It Works -->
   <section id="manual" class="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-gray-900">
     <div class="text-center mb-10 sm:mb-16">
-      <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-4 tracking-tight uppercase">Tactical Operations Manual</h2>
-      <p class="text-gray-500 font-bold uppercase tracking-widest text-[10px] sm:text-sm">Strategic OS: Empowering Commanders with AI Orchestration</p>
-    </div>
-
-    <div class="mb-8 sm:mb-12 bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl">
-      <h3 class="text-lg sm:text-2xl font-black mb-5 sm:mb-6 text-white flex items-center gap-3">
-        <span class="text-blue-500">0.</span> SYSTEM CONFIGURATION
-      </h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-        <div class="space-y-2 border-l border-gray-800 pl-4">
-          <div class="text-blue-400 text-[10px] sm:text-xs font-black uppercase tracking-widest">Platform OS</div>
-          <p class="text-xs sm:text-sm text-gray-400 font-medium">Select workspace: <b>Lark, Google, or Native</b>. Overseer routes outputs to your ecosystem.</p>
-        </div>
-        <div class="space-y-2 border-l border-gray-800 pl-4">
-          <div class="text-purple-400 text-[10px] sm:text-xs font-black uppercase tracking-widest">Brain (Model)</div>
-          <p class="text-xs sm:text-sm text-gray-400 font-medium">Deploy primary LLM from 16+ providers (Groq, Gemini, NVIDIA NIM, OpenAI, Claude, etc.). Swap by task complexity.</p>
-        </div>
-        <div class="space-y-2 border-l border-gray-800 pl-4">
-          <div class="text-green-400 text-[10px] sm:text-xs font-black uppercase tracking-widest">Vector Database</div>
-          <p class="text-xs sm:text-sm text-gray-400 font-medium">Connect Supabase for RAG. Agents recall past contexts with pinpoint accuracy.</p>
-        </div>
-        <div class="space-y-2 border-l border-gray-800 pl-4">
-          <div class="text-amber-400 text-[10px] sm:text-xs font-black uppercase tracking-widest">Hyper-Search</div>
-          <p class="text-xs sm:text-sm text-gray-400 font-medium">Equip agents with FREE_SEARCH — one pipeline replacing 10+ fragile scrapers.</p>
-        </div>
-      </div>
+      <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-4 tracking-tight">How It Works</h2>
+      <p class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto">Three operating modes — from careful step-by-step work to fully autonomous parallel execution.</p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-5 sm:gap-8">
       <div class="bg-[#0a0a0a] border border-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-blue-500/50 transition-all group flex flex-col">
         <div class="w-11 h-11 sm:w-12 sm:h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-5 sm:mb-6 group-hover:scale-110 transition-transform text-xl sm:text-2xl">🤝</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white uppercase tracking-tight">Phase 1: Linear Precision</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Linear Precision</h3>
         <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5 sm:mb-6">
-          Execute strict <b>waterfall workflows</b> in Linear Pipeline Mode. Perfect for operations requiring human oversight and sequential accuracy.
+          Build sequential workflows on a visual canvas. Ideal when each step needs review — research, draft, approve, then deliver.
         </p>
         <div class="mt-auto p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-blue-900/5 transition-colors">
-          <p class="text-[10px] text-blue-500 font-black mb-1 uppercase tracking-widest">Step-by-Step Approval</p>
-          <p class="text-xs text-gray-400">Research → Draft → Deliver. Advance only when each node is validated.</p>
+          <p class="text-[10px] text-blue-500 font-black mb-1 uppercase tracking-widest">Human in the loop</p>
+          <p class="text-xs text-gray-400">You control the pace. Nothing moves forward until you say so.</p>
         </div>
       </div>
 
       <div class="bg-[#0a0a0a] border border-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-green-500/50 transition-all group flex flex-col">
         <div class="w-11 h-11 sm:w-12 sm:h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 mb-5 sm:mb-6 group-hover:scale-110 transition-transform text-xl sm:text-2xl">⚡</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white uppercase tracking-tight">Phase 2: Swarm Engine</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Swarm Engine</h3>
         <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5 sm:mb-6">
-          Call <b>@Overseer</b> in chat. It dissects your objective and dispatches sub-agents in parallel with live mission monitoring.
+          Hand a goal to the Overseer and watch it delegate to specialized agents running in parallel — with live progress tracking.
         </p>
         <div class="mt-auto p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-green-900/5 transition-colors">
-          <p class="text-[10px] text-green-500 font-black mb-1 uppercase tracking-widest">Auto-Routing & ReAct</p>
-          <p class="text-xs text-gray-400">Agents self-correct API failures. Context shared via internal Memory Bus.</p>
+          <p class="text-[10px] text-green-500 font-black mb-1 uppercase tracking-widest">Autonomous execution</p>
+          <p class="text-xs text-gray-400">Agents coordinate, share context, and recover from errors on their own.</p>
         </div>
       </div>
 
-      <div class="bg-[#0a0a0a] border border-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all group flex flex-col lg:col-span-1 sm:col-span-2 lg:col-span-1">
+      <div class="bg-[#0a0a0a] border border-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all group flex flex-col">
         <div class="w-11 h-11 sm:w-12 sm:h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-400 mb-5 sm:mb-6 group-hover:scale-110 transition-transform text-xl sm:text-2xl">🚀</div>
-        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white uppercase tracking-tight">Phase 3: Native Output</h3>
+        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Native Output</h3>
         <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5 sm:mb-6">
-          Finalize intelligence and deploy to action. Write directly into Lark Bitable, Notion databases, or Slack channels.
+          Results land directly in your workspace — docs, databases, chat channels, and calendars — not just in a chat bubble.
         </p>
         <div class="mt-auto p-4 bg-gray-900/30 rounded-2xl border border-gray-800 group-hover:bg-red-900/5 transition-colors">
-          <p class="text-[10px] text-red-500 font-black mb-1 uppercase tracking-widest">Ecosystem Delivery</p>
-          <p class="text-xs text-gray-400">Auto-creates Bitable records, Notion pages, Discord messages, and calendar events.</p>
+          <p class="text-[10px] text-red-500 font-black mb-1 uppercase tracking-widest">Workspace delivery</p>
+          <p class="text-xs text-gray-400">Lark, Google, Slack, Notion, GitHub — routed to where your team actually works.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tech Stack -->
-  <section id="architecture" class="py-16 sm:py-20 px-4 sm:px-6 bg-[#080808] border-y border-gray-900">
+  <!-- Architecture & Tech Stack -->
+  <section id="architecture" class="py-16 sm:py-24 px-4 sm:px-6 bg-[#080808] border-y border-gray-900">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center">Next-Gen Tech Stack</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
-        <div class="p-4 sm:p-6 border border-gray-800 rounded-xl bg-black">
-          <div class="text-base sm:text-xl font-black mb-1 sm:mb-2 text-white">Next.js 14</div>
-          <div class="text-[10px] sm:text-xs text-gray-500 font-mono">App Router / Serverless</div>
+      <div class="text-center mb-10 sm:mb-14">
+        <div class="inline-block px-3 py-1 rounded-full bg-blue-900/30 border border-blue-700/50 text-[10px] sm:text-xs text-blue-400 font-bold uppercase tracking-widest mb-4">Architecture</div>
+        <h2 class="text-2xl sm:text-4xl font-black mb-3 sm:mb-4 tracking-tight">Layered System Design</h2>
+        <p class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto">A modular stack built for multi-agent orchestration at production scale.</p>
+      </div>
+
+      <!-- Architecture layers -->
+      <div class="space-y-3 sm:space-y-4 mb-12 sm:mb-16">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-blue-500/30 transition-colors">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400 font-black text-sm">UI</div>
+          <div>
+            <h4 class="font-bold text-white text-sm sm:text-base mb-1">Workspace Interface</h4>
+            <p class="text-xs sm:text-sm text-gray-500">A unified command center for chat, pipeline building, agent management, and live mission monitoring.</p>
+          </div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Next.js · React</div>
         </div>
-        <div class="p-4 sm:p-6 border border-gray-800 rounded-xl bg-black">
-          <div class="text-base sm:text-xl font-black mb-1 sm:mb-2 text-green-400">Supabase</div>
-          <div class="text-[10px] sm:text-xs text-gray-500 font-mono">pgvector / Auth / DB</div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-violet-500/30 transition-colors">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center text-violet-400 font-black text-sm">OR</div>
+          <div>
+            <h4 class="font-bold text-white text-sm sm:text-base mb-1">Orchestration Engine</h4>
+            <p class="text-xs sm:text-sm text-gray-500">The Overseer decomposes goals, routes tasks to the right agents, and coordinates parallel execution with dependency awareness.</p>
+          </div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Swarm Logic</div>
         </div>
-        <div class="p-4 sm:p-6 border border-gray-800 rounded-xl bg-black">
-          <div class="text-base sm:text-xl font-black mb-1 sm:mb-2 text-blue-400">Turbopack</div>
-          <div class="text-[10px] sm:text-xs text-gray-500 font-mono">Ultra-fast Bundling</div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-green-500/30 transition-colors">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center text-green-400 font-black text-sm">AI</div>
+          <div>
+            <h4 class="font-bold text-white text-sm sm:text-base mb-1">Multi-Provider Intelligence</h4>
+            <p class="text-xs sm:text-sm text-gray-500">Swap between 16+ LLM providers — free and paid — and match model capability to each task without vendor lock-in.</p>
+          </div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Groq · Gemini · OpenAI · Claude · …</div>
         </div>
-        <div class="p-4 sm:p-6 border border-gray-800 rounded-xl bg-black">
-          <div class="text-base sm:text-xl font-black mb-1 sm:mb-2 text-purple-400">Tailwind</div>
-          <div class="text-[10px] sm:text-xs text-gray-500 font-mono">Utility-first Styling</div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-amber-500/30 transition-colors">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-400 font-black text-sm">MEM</div>
+          <div>
+            <h4 class="font-bold text-white text-sm sm:text-base mb-1">Persistent Memory</h4>
+            <p class="text-xs sm:text-sm text-gray-500">Vector-based retrieval gives agents long-term recall across sessions, projects, and conversations.</p>
+          </div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Supabase · Vector DB</div>
         </div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-teal-500/30 transition-colors">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-teal-500/15 flex items-center justify-center text-teal-400 font-black text-sm">INT</div>
+          <div>
+            <h4 class="font-bold text-white text-sm sm:text-base mb-1">Tool & Workspace Integrations</h4>
+            <p class="text-xs sm:text-sm text-gray-500">A growing catalog of connectors for search, productivity suites, messaging, databases, and developer tools — extensible via open protocols.</p>
+          </div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">MCP · REST APIs</div>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-gray-500/30 transition-colors">
+          <div class="shrink-0 w-10 h-10 rounded-xl bg-gray-500/15 flex items-center justify-center text-gray-400 font-black text-sm">INF</div>
+          <div>
+            <h4 class="font-bold text-white text-sm sm:text-base mb-1">Cloud Infrastructure</h4>
+            <p class="text-xs sm:text-sm text-gray-500">Serverless deployment with secure API key vaulting, real-time sync, and edge-ready performance.</p>
+          </div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Vercel · Supabase</div>
+        </div>
+      </div>
+
+      <!-- Tech stack pills -->
+      <div class="text-center mb-6 sm:mb-8">
+        <h3 class="text-lg sm:text-xl font-bold text-white">Technology Stack</h3>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-gray-300 font-semibold">Next.js</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-gray-300 font-semibold">React</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-green-400 font-semibold">Supabase</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-gray-300 font-semibold">Tailwind CSS</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-gray-300 font-semibold">Vercel</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-blue-400 font-semibold">MCP</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-gray-300 font-semibold">Vector RAG</span>
+        <span class="px-3 sm:px-4 py-2 rounded-full border border-gray-800 bg-black text-xs sm:text-sm text-gray-300 font-semibold">Multi-LLM Routing</span>
       </div>
     </div>
   </section>
