@@ -93,7 +93,7 @@
     <button onclick="toggleSetupGuide()" class="group relative mt-4 sm:mt-6 px-5 sm:px-6 py-3 rounded-full bg-gradient-to-b from-gray-800 to-gray-950 border border-gray-700 hover:border-gray-500 shadow-xl flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
       <span class="text-lg">🗝️</span>
-      <span class="text-xs sm:text-sm font-bold text-gray-300 group-hover:text-white transition-colors">API Keys Setup Guide</span>
+        <span class="text-xs sm:text-sm font-bold text-gray-300 group-hover:text-white transition-colors">API Workshop</span>
     </button>
 
     <!-- Mode pills -->
@@ -332,7 +332,7 @@
         </div>
         <div class="space-y-2 border-l border-gray-800 pl-4">
           <div class="text-purple-400 text-[10px] sm:text-xs font-black uppercase tracking-widest">Brain (Model)</div>
-          <p class="text-xs sm:text-sm text-gray-400 font-medium">Deploy primary LLM (Groq, Gemini, Ollama). Swap intelligence by task complexity.</p>
+          <p class="text-xs sm:text-sm text-gray-400 font-medium">Deploy primary LLM from 16+ providers (Groq, Gemini, NVIDIA NIM, OpenAI, Claude, etc.). Swap by task complexity.</p>
         </div>
         <div class="space-y-2 border-l border-gray-800 pl-4">
           <div class="text-green-400 text-[10px] sm:text-xs font-black uppercase tracking-widest">Vector Database</div>
@@ -459,103 +459,50 @@
     <p class="mt-2 opacity-50">Zerro AI OS © 2026</p>
   </footer>
 
-  <!-- Setup Modal -->
-  <div id="setup-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center z-50 p-4 transition-opacity duration-300 overflow-y-auto">
-    <div class="bg-gradient-to-b from-gray-900 to-[#050505] border border-gray-700 shadow-[0_0_50px_rgba(255,255,255,0.05)] rounded-2xl sm:rounded-3xl max-w-2xl w-full p-1 relative my-auto">
-      <div class="bg-[#0a0a0a] rounded-[15px] sm:rounded-[23px] w-full h-full p-5 sm:p-8 relative min-h-0 sm:min-h-[450px]">
-        <button onclick="toggleSetupGuide()" class="absolute top-4 right-4 sm:top-5 sm:right-6 text-gray-600 hover:text-white text-2xl sm:text-3xl font-light transition-colors z-10" aria-label="Close">&times;</button>
+  <!-- Setup Modal — Zerro API Workshop -->
+  <div id="setup-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center z-50 p-3 sm:p-4 transition-opacity duration-300 overflow-y-auto">
+    <div class="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full shadow-2xl relative my-auto max-h-[95vh] overflow-y-auto">
+      <button onclick="toggleSetupGuide()" class="absolute top-3 right-4 sm:top-4 sm:right-5 text-slate-400 hover:text-slate-800 text-2xl font-light transition-colors z-10" aria-label="Close">&times;</button>
 
-        <div id="step-1" class="block transition-all duration-300">
-          <div class="mb-6 sm:mb-10 text-center">
-            <div class="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-[10px] sm:text-xs text-gray-400 font-bold mb-3 sm:mb-4 uppercase tracking-widest">Step 1 / 3</div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Choose Your Engine</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">Get a free API key from your preferred provider.<br class="hidden sm:inline">Then click <b>"I have my key"</b> to proceed.</p>
-          </div>
-          <div class="space-y-3 sm:space-y-4">
-            <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-4 sm:p-5 rounded-2xl border border-gray-800 flex flex-col gap-3 sm:gap-4 hover:border-green-500/50 hover:bg-green-900/10 transition-all">
-              <div class="flex items-center gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 text-xl sm:text-2xl font-black shrink-0">g</div>
-                <div>
-                  <h3 class="font-bold text-gray-200 text-base sm:text-lg flex flex-wrap items-center gap-2">Groq <span class="bg-green-500 text-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-black">Recommended</span></h3>
-                  <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Insanely fast. Massive free tier.</p>
-                </div>
-              </div>
-              <div class="flex gap-2">
-                <a href="https://console.groq.com/" target="_blank" rel="noopener" class="px-3 sm:px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Get Key ↗</a>
-                <button onclick="goToStep2('Groq')" class="px-3 sm:px-4 py-2 bg-green-500/10 text-green-400 border border-green-500/30 rounded-lg text-xs font-bold hover:bg-green-500 hover:text-black transition-all flex-1">2. I have my key →</button>
-              </div>
-            </div>
-            <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-4 sm:p-5 rounded-2xl border border-gray-800 flex flex-col gap-3 sm:gap-4 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all">
-              <div class="flex items-center gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl sm:text-2xl font-black shrink-0">✦</div>
-                <div>
-                  <h3 class="font-bold text-gray-200 text-base sm:text-lg">Gemini</h3>
-                  <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Google's flagship. Great for general tasks.</p>
-                </div>
-              </div>
-              <div class="flex gap-2">
-                <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="px-3 sm:px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Get Key ↗</a>
-                <button onclick="goToStep2('Gemini')" class="px-3 sm:px-4 py-2 bg-blue-500/10 text-blue-400 border border-blue-500/30 rounded-lg text-xs font-bold hover:bg-blue-500 hover:text-white transition-all flex-1">2. I have my key →</button>
-              </div>
-            </div>
-            <div class="bg-gradient-to-r from-gray-900 to-gray-900/50 p-4 sm:p-5 rounded-2xl border border-gray-800 flex flex-col gap-3 sm:gap-4 hover:border-purple-500/50 hover:bg-purple-900/10 transition-all">
-              <div class="flex items-center gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl sm:text-2xl font-black shrink-0">🦙</div>
-                <div>
-                  <h3 class="font-bold text-gray-200 text-base sm:text-lg flex flex-wrap items-center gap-2">Ollama <span class="bg-gray-800 text-gray-400 border border-gray-700 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">Local</span></h3>
-                  <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">100% Free & Private. Runs locally.</p>
-                </div>
-              </div>
-              <div class="flex gap-2">
-                <a href="https://ollama.com" target="_blank" rel="noopener" class="px-3 sm:px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-xs font-bold hover:bg-gray-700 text-center flex-1">1. Download ↗</a>
-                <button onclick="goToOllamaStep()" class="px-3 sm:px-4 py-2 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-lg text-xs font-bold hover:bg-purple-500 hover:text-white transition-all flex-1">2. Connect Locally →</button>
-              </div>
-            </div>
-          </div>
+      <div class="p-5 sm:p-8">
+        <h2 class="text-lg sm:text-xl font-black text-slate-900 mb-1">🚀 Zerro API Workshop</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mb-4">Start with any free key — Groq, NVIDIA NIM, Cerebras, and more.</p>
+
+        <!-- Free API pills -->
+        <div class="mb-4">
+          <div class="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-2">🆓 Free APIs</div>
+          <div id="free-pills" class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto"></div>
         </div>
 
-        <div id="step-2" class="hidden transition-all duration-300 flex flex-col justify-center">
-          <div class="mb-6 sm:mb-10 text-center">
-            <div class="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 text-[10px] sm:text-xs text-gray-400 font-bold mb-3 sm:mb-4 uppercase tracking-widest">Step 2 / 3</div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Connect <span id="provider-name" class="text-white">API</span></h2>
-            <p class="text-gray-400 text-xs sm:text-sm">Paste your secret API key below.<br>It is stored locally on your device.</p>
-          </div>
-          <div class="max-w-md mx-auto w-full space-y-4 sm:space-y-6">
-            <input type="password" id="api-key-input" placeholder="sk-..." class="w-full bg-gray-900 border border-gray-700 text-white px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono text-sm"/>
-            <div class="flex gap-3 sm:gap-4">
-              <button onclick="goToStep1()" class="px-4 sm:px-6 py-3.5 sm:py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
-              <button onclick="saveAndGoToStep3()" class="px-4 sm:px-6 py-3.5 sm:py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-colors w-2/3 shadow-[0_0_20px_rgba(255,255,255,0.2)]">Verify & Save 🚀</button>
-            </div>
-          </div>
-        </div>
+        <!-- Provider select -->
+        <div class="space-y-3">
+          <select id="provider-select" onchange="onProviderChange()" class="w-full border border-slate-200 rounded-xl p-2.5 text-sm font-bold text-slate-800 bg-white outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"></select>
 
-        <div id="step-ollama" class="hidden transition-all duration-300 flex flex-col justify-center">
-          <div class="mb-6 sm:mb-8 text-center">
-            <div class="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-purple-900/30 border border-purple-700 text-[10px] sm:text-xs text-purple-400 font-bold mb-3 sm:mb-4 uppercase tracking-widest">Local Setup</div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-3 text-white">Open Your Local Port</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">Zerro AI runs in the browser. Start Ollama with cross-origin enabled.</p>
+          <!-- Provider info panel -->
+          <div id="provider-info" class="text-[11px] bg-slate-50 border border-slate-100 rounded-xl p-3 space-y-1.5 hidden">
+            <p id="provider-tier" class="text-emerald-700 font-bold"></p>
+            <p id="provider-hint" class="text-slate-500 font-mono hidden"></p>
+            <a id="provider-signup" href="#" target="_blank" rel="noopener" class="text-blue-600 font-bold hover:underline inline-block">→ Get free API key</a>
           </div>
-          <div class="max-w-xl mx-auto w-full space-y-4 sm:space-y-6">
-            <div class="bg-black border border-gray-700 p-4 sm:p-5 rounded-xl text-left">
-              <p class="text-[10px] sm:text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Run this command in your terminal:</p>
-              <code class="text-green-400 text-xs sm:text-sm font-mono break-all select-all block">OLLAMA_HOST="0.0.0.0" OLLAMA_ORIGINS="*" ollama serve</code>
-            </div>
-            <p class="text-[11px] sm:text-xs text-gray-500 text-center">Close the standard Ollama app before running this command.</p>
-            <div class="flex gap-3 sm:gap-4">
-              <button onclick="goToStep1()" class="px-4 sm:px-6 py-3.5 sm:py-4 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-700 transition-colors w-1/3">Back</button>
-              <button onclick="goToStep3('Ollama')" class="px-4 sm:px-6 py-3.5 sm:py-4 bg-purple-600 text-white rounded-xl text-sm font-black hover:bg-purple-500 transition-colors w-2/3 shadow-[0_0_20px_rgba(168,85,247,0.3)]">I'm Running It 🚀</button>
-            </div>
-          </div>
-        </div>
 
-        <div id="step-3" class="hidden transition-all duration-300 flex flex-col justify-center items-center text-center">
-          <div class="mb-5 sm:mb-6">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 bg-green-500/10 border-2 border-green-500 text-green-400 rounded-full flex items-center justify-center text-4xl sm:text-5xl mx-auto mb-5 sm:mb-6 shadow-[0_0_30px_rgba(34,197,94,0.3)]">✓</div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-3 text-white">Agent Activated!</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">Your <span id="final-provider" class="text-white font-bold"></span> engine is fully operational.<br>You are ready to build.</p>
+          <!-- Ollama local setup -->
+          <div id="ollama-panel" class="hidden space-y-3">
+            <div class="bg-slate-900 border border-slate-700 p-4 rounded-xl text-left">
+              <p class="text-[10px] font-bold text-slate-400 mb-2 uppercase tracking-wider">Run in terminal:</p>
+              <code class="text-green-400 text-xs font-mono break-all select-all block">OLLAMA_HOST="0.0.0.0" OLLAMA_ORIGINS="*" ollama serve</code>
+            </div>
+            <p class="text-[11px] text-slate-500">Close the Ollama app first. Then connect at <span class="font-mono">localhost:11434</span> in the dashboard.</p>
           </div>
-          <button onclick="finishSetup()" class="mt-3 sm:mt-4 px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-black rounded-xl text-sm font-black hover:opacity-80 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transform">
-            Enter Dashboard →
+
+          <!-- API key input -->
+          <div id="key-input-wrap">
+            <input type="password" id="api-key-input" placeholder="API Key" class="w-full border border-slate-200 rounded-xl p-3 text-sm font-mono text-slate-800 outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"/>
+          </div>
+
+          <p class="text-[10px] text-slate-400 leading-relaxed">Keys are stored securely via Zerro's backend vault (HttpOnly cookie) when you connect in the app.</p>
+
+          <button id="start-btn" onclick="startSetup()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-sm transition-all">
+            ⚡ Start instantly
           </button>
         </div>
       </div>
@@ -563,7 +510,120 @@
   </div>
 
   <script>
-    let currentProvider = "";
+    const PROVIDERS = {
+      free: [
+        { id: "GROQ", label: "Groq", signupUrl: "https://console.groq.com/keys", freeTier: "~30 req/min, ultra-fast inference, no card", keyHint: "gsk_...", defaultModel: "llama-3.3-70b-versatile" },
+        { id: "NVIDIA", label: "NVIDIA NIM", signupUrl: "https://build.nvidia.com", freeTier: "100+ models, 1k–5k credits, 40 req/min", keyHint: "nvapi-..." },
+        { id: "CEREBRAS", label: "Cerebras", signupUrl: "https://cloud.cerebras.ai", freeTier: "~1M tokens/day, very fast, no card" },
+        { id: "GEMINI", label: "Google Gemini", signupUrl: "https://aistudio.google.com/apikey", freeTier: "Generous free tier via AI Studio", defaultModel: "gemini-2.0-flash-lite" },
+        { id: "MISTRAL", label: "Mistral", signupUrl: "https://console.mistral.ai/api-keys", freeTier: "Experiment tier: 1B tokens/month" },
+        { id: "OPENROUTER", label: "OpenRouter", signupUrl: "https://openrouter.ai/keys", freeTier: "Many :free models, one key for many providers" },
+        { id: "TOGETHER", label: "Together AI", signupUrl: "https://api.together.xyz/settings/api-keys", freeTier: "Free credits on signup" },
+        { id: "DEEPSEEK", label: "DeepSeek", signupUrl: "https://platform.deepseek.com/api_keys", freeTier: "Low-cost / limited free tier", defaultModel: "deepseek-chat" },
+        { id: "SAMBANOVA", label: "SambaNova", signupUrl: "https://cloud.sambanova.ai", freeTier: "Free credits on signup" },
+        { id: "FIREWORKS", label: "Fireworks AI", signupUrl: "https://fireworks.ai/login", freeTier: "Free credits on signup" },
+        { id: "GITHUB", label: "GitHub Models", signupUrl: "https://github.com/settings/tokens", freeTier: "Free models via GitHub PAT", keyHint: "github_pat_..." },
+        { id: "HUGGINGFACE", label: "Hugging Face", signupUrl: "https://huggingface.co/settings/tokens", freeTier: "Router free tier (token required)" },
+        { id: "QWEN", label: "Qwen (DashScope)", signupUrl: "https://dashscope.console.aliyun.com/apiKey", freeTier: "Alibaba DashScope free tier" },
+      ],
+      paid: [
+        { id: "OPENAI", label: "OpenAI", signupUrl: "https://platform.openai.com/api-keys", defaultModel: "gpt-4o-mini" },
+        { id: "CLAUDE", label: "Claude (Anthropic)", signupUrl: "https://console.anthropic.com/settings/keys", defaultModel: "claude-3-5-sonnet-latest" },
+        { id: "GROK", label: "Grok (xAI)", signupUrl: "https://console.x.ai", defaultModel: "grok-2-latest" },
+      ],
+      local: [
+        { id: "OLLAMA", label: "Ollama (Local)", signupUrl: "https://ollama.com", freeTier: "100% free & private — runs on your machine" },
+      ]
+    };
+
+    let selectedProvider = PROVIDERS.free[0];
+
+    function getAllProviders() {
+      return [...PROVIDERS.free, ...PROVIDERS.paid, ...PROVIDERS.local];
+    }
+
+    function renderPills() {
+      const container = document.getElementById('free-pills');
+      container.innerHTML = PROVIDERS.free.map(p => `
+        <button type="button" onclick="selectProvider('${p.id}')"
+          data-id="${p.id}"
+          class="provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100">
+          ${p.label}
+        </button>
+      `).join('');
+      updatePillStyles();
+    }
+
+    function renderSelect() {
+      const sel = document.getElementById('provider-select');
+      sel.innerHTML = `
+        <optgroup label="🆓 Free tier">
+          ${PROVIDERS.free.map(p => `<option value="${p.id}">${p.label}</option>`).join('')}
+        </optgroup>
+        <optgroup label="💳 Paid">
+          ${PROVIDERS.paid.map(p => `<option value="${p.id}">${p.label}</option>`).join('')}
+        </optgroup>
+        <optgroup label="🖥️ Local">
+          ${PROVIDERS.local.map(p => `<option value="${p.id}">${p.label}</option>`).join('')}
+        </optgroup>
+      `;
+    }
+
+    function selectProvider(id) {
+      selectedProvider = getAllProviders().find(p => p.id === id) || PROVIDERS.free[0];
+      document.getElementById('provider-select').value = selectedProvider.id;
+      updateProviderUI();
+    }
+
+    function onProviderChange() {
+      const id = document.getElementById('provider-select').value;
+      selectProvider(id);
+    }
+
+    function updatePillStyles() {
+      document.querySelectorAll('.provider-pill').forEach(btn => {
+        const active = btn.dataset.id === selectedProvider.id;
+        btn.className = `provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
+          active ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
+        }`;
+      });
+    }
+
+    function updateProviderUI() {
+      updatePillStyles();
+      const isOllama = selectedProvider.id === 'OLLAMA';
+      const info = document.getElementById('provider-info');
+      const ollama = document.getElementById('ollama-panel');
+      const keyWrap = document.getElementById('key-input-wrap');
+      const input = document.getElementById('api-key-input');
+
+      if (isOllama) {
+        info.classList.add('hidden');
+        ollama.classList.remove('hidden');
+        keyWrap.classList.add('hidden');
+        document.getElementById('start-btn').textContent = '⚡ Open Dashboard to Connect';
+        return;
+      }
+
+      ollama.classList.add('hidden');
+      keyWrap.classList.remove('hidden');
+      info.classList.remove('hidden');
+      document.getElementById('start-btn').textContent = '⚡ Start instantly';
+
+      document.getElementById('provider-tier').textContent = selectedProvider.freeTier || (PROVIDERS.paid.find(p => p.id === selectedProvider.id) ? 'Paid tier — billing required' : '');
+      const hint = document.getElementById('provider-hint');
+      if (selectedProvider.keyHint) {
+        hint.textContent = 'Key format: ' + selectedProvider.keyHint;
+        hint.classList.remove('hidden');
+      } else {
+        hint.classList.add('hidden');
+      }
+      const signup = document.getElementById('provider-signup');
+      signup.href = selectedProvider.signupUrl;
+      signup.textContent = PROVIDERS.paid.find(p => p.id === selectedProvider.id) ? '→ Get API key' : '→ Get free API key';
+      input.placeholder = selectedProvider.keyHint ? `API Key (${selectedProvider.keyHint})` : 'API Key';
+      input.value = '';
+    }
 
     function toggleSetupGuide() {
       const modal = document.getElementById('setup-modal');
@@ -572,7 +632,9 @@
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
-        goToStep1();
+        renderPills();
+        renderSelect();
+        selectProvider('GROQ');
       } else {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
@@ -580,65 +642,43 @@
       }
     }
 
-    function hideAllSteps() {
-      ['step-1', 'step-2', 'step-ollama', 'step-3'].forEach(id => {
-        const el = document.getElementById(id);
-        el.classList.add('hidden');
-        el.classList.remove('block', 'flex');
-      });
-    }
-
-    function goToStep1() {
-      hideAllSteps();
-      const el = document.getElementById('step-1');
-      el.classList.remove('hidden');
-      el.classList.add('block');
-    }
-
-    function goToStep2(provider) {
-      currentProvider = provider;
-      document.getElementById('provider-name').innerText = provider;
-      document.getElementById('api-key-input').value = "";
-      hideAllSteps();
-      const el = document.getElementById('step-2');
-      el.classList.remove('hidden');
-      el.classList.add('flex');
-    }
-
-    function goToOllamaStep() {
-      hideAllSteps();
-      const el = document.getElementById('step-ollama');
-      el.classList.remove('hidden');
-      el.classList.add('flex');
-    }
-
-    function saveAndGoToStep3() {
-      const key = document.getElementById('api-key-input').value.trim();
-      if (!key) {
-        alert("Please enter your API key first!");
+    async function startSetup() {
+      const btn = document.getElementById('start-btn');
+      if (selectedProvider.id === 'OLLAMA') {
+        window.location.href = 'https://zerroai.space';
         return;
       }
-      localStorage.setItem(`API_KEY_${currentProvider.toUpperCase()}`, key);
-      goToStep3(currentProvider);
-    }
-
-    function goToStep3(provider) {
-      currentProvider = provider;
-      document.getElementById('final-provider').innerText = currentProvider;
-      hideAllSteps();
-      const el = document.getElementById('step-3');
-      el.classList.remove('hidden');
-      el.classList.add('flex');
-    }
-
-    function finishSetup() {
-      window.location.href = "https://zerroai.space";
+      const key = document.getElementById('api-key-input').value.trim();
+      if (!key) {
+        alert('Please enter your API key first!');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Connecting...';
+      try {
+        const res = await fetch('https://zerroai.space/api/auth/save-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ provider: selectedProvider.id, apiKey: key })
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.location.href = 'https://zerroai.space';
+          return;
+        }
+      } catch (_) { /* cross-origin — redirect to app */ }
+      window.location.href = 'https://zerroai.space';
     }
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         const modal = document.getElementById('setup-modal');
         if (!modal.classList.contains('hidden')) toggleSetupGuide();
+      }
+      if (e.key === 'Enter') {
+        const modal = document.getElementById('setup-modal');
+        if (!modal.classList.contains('hidden') && document.activeElement?.id === 'api-key-input') startSetup();
       }
     });
   </script>
