@@ -504,6 +504,11 @@
           <div id="free-pills" class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto"></div>
         </div>
 
+        <div class="mb-4">
+          <div class="text-[10px] font-black text-violet-600 uppercase tracking-widest mb-2">🖥️ Local — no API key</div>
+          <div id="local-pills" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
         <!-- Provider select -->
         <div class="space-y-3">
           <select id="provider-select" onchange="onProviderChange()" class="w-full border border-slate-200 rounded-xl p-2.5 text-sm font-bold text-slate-800 bg-white outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"></select>
@@ -515,13 +520,35 @@
             <a id="provider-signup" href="#" target="_blank" rel="noopener" class="text-blue-600 font-bold hover:underline inline-block">→ Get free API key</a>
           </div>
 
-          <!-- Ollama local setup -->
+          <!-- Ollama — auto-detect local instance -->
           <div id="ollama-panel" class="hidden space-y-3">
-            <div class="bg-slate-900 border border-slate-700 p-4 rounded-xl text-left">
-              <p class="text-[10px] font-bold text-slate-400 mb-2 uppercase tracking-wider">Run in terminal:</p>
-              <code class="text-green-400 text-xs font-mono break-all select-all block">OLLAMA_HOST="0.0.0.0" OLLAMA_ORIGINS="*" ollama serve</code>
+            <div id="ollama-checking" class="flex items-center gap-2.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="w-4 h-4 border-2 border-slate-300 border-t-emerald-500 rounded-full animate-spin shrink-0"></span>
+              <span class="text-xs text-slate-600 font-medium">Checking for Ollama on your machine…</span>
             </div>
-            <p class="text-[11px] text-slate-500">Close the Ollama app first. Then connect at <span class="font-mono">localhost:11434</span> in the dashboard.</p>
+            <div id="ollama-ready" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-3">
+              <p class="text-sm font-bold text-emerald-800">✓ Ollama is running</p>
+              <p id="ollama-status-msg" class="text-[11px] text-emerald-700"></p>
+              <div>
+                <label for="ollama-model-select" class="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1.5 block">Select model</label>
+                <select id="ollama-model-select" class="w-full border border-emerald-200 rounded-xl p-2.5 text-sm font-bold text-slate-800 bg-white outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"></select>
+              </div>
+              <div id="ollama-manual-wrap" class="hidden">
+                <label for="ollama-model-manual" class="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1.5 block">Model name</label>
+                <input id="ollama-model-manual" type="text" placeholder="e.g. llama3.2, mistral, qwen2.5" class="w-full border border-slate-200 rounded-xl p-2.5 text-sm font-mono text-slate-800 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"/>
+              </div>
+              <button type="button" onclick="checkOllama()" class="text-[11px] font-bold text-emerald-800 hover:text-emerald-900 underline">↻ Refresh models</button>
+              <p class="text-[11px] text-slate-500">No API key needed — your models stay on your machine.</p>
+            </div>
+            <div id="ollama-missing" class="hidden p-4 rounded-xl bg-amber-50 border border-amber-200 space-y-3">
+              <p class="text-sm font-bold text-amber-800">Couldn't load models automatically</p>
+              <p class="text-[11px] text-slate-600 leading-relaxed">If Ollama is already running, type your model name below and continue. Otherwise install <a href="https://ollama.com" target="_blank" rel="noopener" class="text-blue-600 font-bold hover:underline">Ollama</a> and open the app.</p>
+              <div>
+                <label for="ollama-model-manual-fallback" class="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1.5 block">Model name</label>
+                <input id="ollama-model-manual-fallback" type="text" placeholder="e.g. llama3.2, mistral, qwen2.5" class="w-full border border-slate-200 rounded-xl p-2.5 text-sm font-mono text-slate-800 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400"/>
+              </div>
+              <button type="button" onclick="checkOllama()" class="text-[11px] font-bold text-amber-800 hover:text-amber-900 underline">↻ Retry detection</button>
+            </div>
           </div>
 
           <!-- API key input -->
@@ -529,7 +556,7 @@
             <input type="password" id="api-key-input" placeholder="API Key" class="w-full border border-slate-200 rounded-xl p-3 text-sm font-mono text-slate-800 outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"/>
           </div>
 
-          <p class="text-[10px] text-slate-400 leading-relaxed">Keys are stored securely via Zerro's backend vault (HttpOnly cookie) when you connect in the app.</p>
+          <p id="vault-note" class="text-[10px] text-slate-400 leading-relaxed">Keys are stored securely via Zerro's backend vault (HttpOnly cookie) when you connect in the app.</p>
 
           <button id="start-btn" onclick="startSetup()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-sm transition-all">
             ⚡ Start instantly
@@ -562,25 +589,40 @@
         { id: "GROK", label: "Grok (xAI)", signupUrl: "https://console.x.ai", defaultModel: "grok-2-latest" },
       ],
       local: [
-        { id: "OLLAMA", label: "Ollama (Local)", signupUrl: "https://ollama.com", freeTier: "100% free & private — runs on your machine" },
+        { id: "OLLAMA", label: "Ollama (Local)", signupUrl: "https://ollama.com", freeTier: "Already running Ollama? Connect instantly — no API key needed." },
       ]
     };
 
+    const OLLAMA_URL = 'http://localhost:11434';
+    const ZERRO_BRIDGE_ID = 'pdpmemffehkaiegcdglldfcpeadlbemm';
+    const OLLAMA_FALLBACK_MODELS = ['llama3.2', 'llama3.1', 'llama3', 'mistral', 'qwen2.5', 'gemma2', 'phi3'];
     let selectedProvider = PROVIDERS.free[0];
+    let ollamaModels = [];
+    let ollamaReady = false;
 
     function getAllProviders() {
       return [...PROVIDERS.free, ...PROVIDERS.paid, ...PROVIDERS.local];
     }
 
     function renderPills() {
-      const container = document.getElementById('free-pills');
-      container.innerHTML = PROVIDERS.free.map(p => `
+      const freeContainer = document.getElementById('free-pills');
+      freeContainer.innerHTML = PROVIDERS.free.map(p => `
         <button type="button" onclick="selectProvider('${p.id}')"
           data-id="${p.id}"
           class="provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100">
           ${p.label}
         </button>
       `).join('');
+
+      const localContainer = document.getElementById('local-pills');
+      localContainer.innerHTML = PROVIDERS.local.map(p => `
+        <button type="button" onclick="selectProvider('${p.id}')"
+          data-id="${p.id}"
+          class="provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all bg-violet-50 text-violet-800 border-violet-200 hover:bg-violet-100">
+          ${p.label}
+        </button>
+      `).join('');
+
       updatePillStyles();
     }
 
@@ -613,10 +655,161 @@
     function updatePillStyles() {
       document.querySelectorAll('.provider-pill').forEach(btn => {
         const active = btn.dataset.id === selectedProvider.id;
-        btn.className = `provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
-          active ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
-        }`;
+        const isLocal = PROVIDERS.local.some(p => p.id === btn.dataset.id);
+        if (isLocal) {
+          btn.className = `provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
+            active ? 'bg-violet-600 text-white border-violet-600' : 'bg-violet-50 text-violet-800 border-violet-200 hover:bg-violet-100'
+          }`;
+        } else {
+          btn.className = `provider-pill px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
+            active ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
+          }`;
+        }
       });
+    }
+
+    function getChromeRuntime() {
+      const rt = window.chrome?.runtime;
+      return rt?.sendMessage ? rt : null;
+    }
+
+    function sendBridgeMessage(payload) {
+      const rt = getChromeRuntime();
+      if (!rt) return Promise.reject(new Error('no extension'));
+      return new Promise((resolve, reject) => {
+        rt.sendMessage(ZERRO_BRIDGE_ID, payload, (res) => {
+          if (rt.lastError) reject(new Error(rt.lastError.message));
+          else resolve(res);
+        });
+      });
+    }
+
+    async function fetchModelsViaExtension() {
+      try {
+        const res = await sendBridgeMessage({ type: 'GET_MODELS' });
+        if (res?.success && Array.isArray(res.models) && res.models.length) {
+          return res.models;
+        }
+      } catch (_) { /* extension not installed */ }
+      return null;
+    }
+
+    async function probeOllama(baseUrl) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 4000);
+      try {
+        const res = await fetch(`${baseUrl}/api/tags`, { signal: ctrl.signal, mode: 'cors' });
+        if (!res.ok) return null;
+        const data = await res.json();
+        const models = (data.models || []).map(m => m.name).filter(Boolean);
+        return models.length ? models : null;
+      } catch {
+        return null;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    async function fetchAllOllamaModels() {
+      const extensionModels = await fetchModelsViaExtension();
+      if (extensionModels?.length) return { models: extensionModels, source: 'extension' };
+
+      for (const url of [OLLAMA_URL, 'http://127.0.0.1:11434']) {
+        const models = await probeOllama(url);
+        if (models?.length) return { models, source: 'local' };
+      }
+
+      return { models: [], source: 'none' };
+    }
+
+    function populateModelSelect(models) {
+      const select = document.getElementById('ollama-model-select');
+      const manualWrap = document.getElementById('ollama-manual-wrap');
+      if (!models.length) {
+        select.innerHTML = '<option value="">No models loaded — type below</option>';
+        manualWrap.classList.remove('hidden');
+        return;
+      }
+      select.innerHTML = models.map(m => `<option value="${m}">${m}</option>`).join('');
+      manualWrap.classList.add('hidden');
+    }
+
+    function getSelectedOllamaModel() {
+      const fromSelect = document.getElementById('ollama-model-select')?.value?.trim();
+      if (fromSelect) return fromSelect;
+      const manual = document.getElementById('ollama-model-manual')?.value?.trim();
+      if (manual) return manual;
+      const fallback = document.getElementById('ollama-model-manual-fallback')?.value?.trim();
+      if (fallback) return fallback;
+      return ollamaModels[0] || 'llama3.2';
+    }
+
+    async function checkOllama() {
+      const checking = document.getElementById('ollama-checking');
+      const ready = document.getElementById('ollama-ready');
+      const missing = document.getElementById('ollama-missing');
+      const btn = document.getElementById('start-btn');
+      const statusMsg = document.getElementById('ollama-status-msg');
+
+      ollamaReady = false;
+      ollamaModels = [];
+      checking.classList.remove('hidden');
+      ready.classList.add('hidden');
+      missing.classList.add('hidden');
+      btn.disabled = true;
+      btn.textContent = 'Checking Ollama…';
+
+      const { models, source } = await fetchAllOllamaModels();
+      checking.classList.add('hidden');
+
+      if (models.length) {
+        ollamaModels = models;
+        ollamaReady = true;
+        populateModelSelect(models);
+        statusMsg.textContent = source === 'extension'
+          ? `Found ${models.length} model${models.length > 1 ? 's' : ''} via Zerro Bridge`
+          : `Found ${models.length} local model${models.length > 1 ? 's' : ''}`;
+        ready.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = '⚡ Start with Ollama';
+        return;
+      }
+
+      // Ollama may be running but browser can't list models (CORS / no extension)
+      ollamaModels = [...OLLAMA_FALLBACK_MODELS];
+      populateModelSelect([]);
+      document.getElementById('ollama-model-manual-fallback').value = '';
+      missing.classList.remove('hidden');
+      btn.disabled = false;
+      btn.textContent = '⚡ Continue with Ollama';
+      updateOllamaStartButton();
+    }
+
+    function updateOllamaStartButton() {
+      if (selectedProvider.id !== 'OLLAMA') return;
+      const btn = document.getElementById('start-btn');
+      const hasModel = !!getSelectedOllamaModel();
+      const missingVisible = !document.getElementById('ollama-missing').classList.contains('hidden');
+      if (missingVisible && !hasModel) {
+        btn.disabled = true;
+      } else {
+        btn.disabled = false;
+      }
+    }
+
+    function prepareOllamaSession() {
+      localStorage.setItem('OLLAMA_CUSTOM_URL', OLLAMA_URL);
+      const model = getSelectedOllamaModel();
+      localStorage.setItem('ZERRO_AGENTS_LIST', JSON.stringify([{
+        id: 'default-assistant',
+        name: 'Universal Assistant',
+        role: 'operator',
+        provider: 'OLLAMA',
+        model
+      }]));
+      localStorage.setItem('ZERRO_GLOBAL_MODEL_POOL', JSON.stringify([{ provider: 'ollama', model }]));
+      localStorage.setItem('ZERRO_SECRETARY_PROVIDER', 'ollama');
+      localStorage.setItem('ZERRO_SECRETARY_MODEL', model);
     }
 
     function updateProviderUI() {
@@ -625,20 +818,32 @@
       const info = document.getElementById('provider-info');
       const ollama = document.getElementById('ollama-panel');
       const keyWrap = document.getElementById('key-input-wrap');
+      const vaultNote = document.getElementById('vault-note');
       const input = document.getElementById('api-key-input');
+      const btn = document.getElementById('start-btn');
 
       if (isOllama) {
-        info.classList.add('hidden');
+        info.classList.remove('hidden');
+        document.getElementById('provider-tier').textContent = selectedProvider.freeTier;
+        document.getElementById('provider-hint').classList.add('hidden');
+        const signup = document.getElementById('provider-signup');
+        signup.href = selectedProvider.signupUrl;
+        signup.textContent = "→ Don't have Ollama? Download free";
         ollama.classList.remove('hidden');
         keyWrap.classList.add('hidden');
-        document.getElementById('start-btn').textContent = '⚡ Open Dashboard to Connect';
+        vaultNote.classList.add('hidden');
+        btn.textContent = 'Checking Ollama…';
+        btn.disabled = true;
+        checkOllama();
         return;
       }
 
       ollama.classList.add('hidden');
       keyWrap.classList.remove('hidden');
+      vaultNote.classList.remove('hidden');
       info.classList.remove('hidden');
-      document.getElementById('start-btn').textContent = '⚡ Start instantly';
+      btn.disabled = false;
+      btn.textContent = '⚡ Start instantly';
 
       document.getElementById('provider-tier').textContent = selectedProvider.freeTier || (PROVIDERS.paid.find(p => p.id === selectedProvider.id) ? 'Paid tier — billing required' : '');
       const hint = document.getElementById('provider-hint');
@@ -675,6 +880,24 @@
     async function startSetup() {
       const btn = document.getElementById('start-btn');
       if (selectedProvider.id === 'OLLAMA') {
+        btn.disabled = true;
+        btn.textContent = 'Connecting...';
+        const model = getSelectedOllamaModel();
+        if (!model) {
+          alert('Please enter or select an Ollama model name.');
+          btn.disabled = false;
+          btn.textContent = ollamaReady ? '⚡ Start with Ollama' : '⚡ Continue with Ollama';
+          return;
+        }
+        prepareOllamaSession();
+        try {
+          await fetch('https://zerroai.space/api/auth/save-key', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ provider: 'OLLAMA', apiKey: 'local' })
+          });
+        } catch (_) { /* local session prepared — app will auto-detect */ }
         window.location.href = 'https://zerroai.space';
         return;
       }
@@ -710,6 +933,11 @@
         const modal = document.getElementById('setup-modal');
         if (!modal.classList.contains('hidden') && document.activeElement?.id === 'api-key-input') startSetup();
       }
+    });
+
+    ['ollama-model-manual', 'ollama-model-manual-fallback', 'ollama-model-select'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', updateOllamaStartButton);
+      document.getElementById(id)?.addEventListener('change', updateOllamaStartButton);
     });
   </script>
 </body>
