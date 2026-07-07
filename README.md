@@ -213,7 +213,7 @@ The landing page includes the **Zerro API Workshop** modal (opened via the **API
 
 **Paid tier (3):** OpenAI, Claude (Anthropic), Grok (xAI)
 
-**Local:** Ollama
+**Local:** Ollama — auto-detected on `localhost:11434`. No API key or terminal setup required; just install and run the Ollama app.
 
 ### How it works
 
