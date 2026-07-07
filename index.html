@@ -526,6 +526,9 @@
               <span class="w-4 h-4 border-2 border-slate-300 border-t-emerald-500 rounded-full animate-spin shrink-0"></span>
               <span class="text-xs text-slate-600 font-medium">Checking for Ollama on your machine…</span>
             </div>
+            <p id="ollama-permission-hint" class="hidden text-[11px] text-blue-700 bg-blue-50 border border-blue-100 rounded-xl px-3 py-2 leading-relaxed">
+              If your browser shows a <strong>local network</strong> or <strong>device access</strong> prompt, click <strong>Allow</strong> so we can read your local models. No extension required.
+            </p>
             <div id="ollama-ready" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-3">
               <p class="text-sm font-bold text-emerald-800">✓ Ollama is running</p>
               <p id="ollama-status-msg" class="text-[11px] text-emerald-700"></p>
@@ -542,7 +545,7 @@
             </div>
             <div id="ollama-missing" class="hidden p-4 rounded-xl bg-amber-50 border border-amber-200 space-y-3">
               <p class="text-sm font-bold text-amber-800">Couldn't load models automatically</p>
-              <p class="text-[11px] text-slate-600 leading-relaxed">If Ollama is already running, type your model name below and continue. Otherwise install <a href="https://ollama.com" target="_blank" rel="noopener" class="text-blue-600 font-bold hover:underline">Ollama</a> and open the app.</p>
+              <p class="text-[11px] text-slate-600 leading-relaxed">If Ollama is running, type your model name below and continue. In Chrome, click <strong>Allow</strong> when asked for local device access, then hit Retry. Otherwise install <a href="https://ollama.com" target="_blank" rel="noopener" class="text-blue-600 font-bold hover:underline">Ollama</a> and pull a model (<code class="text-[10px] bg-white px-1 rounded">ollama pull llama3.2</code>).</p>
               <div>
                 <label for="ollama-model-manual-fallback" class="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-1.5 block">Model name</label>
                 <input id="ollama-model-manual-fallback" type="text" placeholder="e.g. llama3.2, mistral, qwen2.5" class="w-full border border-slate-200 rounded-xl p-2.5 text-sm font-mono text-slate-800 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400"/>
@@ -593,12 +596,18 @@
       ]
     };
 
-    const OLLAMA_URL = 'http://localhost:11434';
-    const ZERRO_BRIDGE_ID = 'pdpmemffehkaiegcdglldfcpeadlbemm';
+    const OLLAMA_URL = 'http://127.0.0.1:11434';
+    const OLLAMA_PROBE_URLS = [
+      { base: 'http://127.0.0.1:11434', space: 'loopback' },
+      { base: 'http://localhost:11434', space: 'loopback' },
+      { base: 'http://127.0.0.1:11434', space: null },
+      { base: 'http://localhost:11434', space: null },
+    ];
     const OLLAMA_FALLBACK_MODELS = ['llama3.2', 'llama3.1', 'llama3', 'mistral', 'qwen2.5', 'gemma2', 'phi3'];
     let selectedProvider = PROVIDERS.free[0];
     let ollamaModels = [];
     let ollamaReady = false;
+    let ollamaWorkingUrl = OLLAMA_URL;
 
     function getAllProviders() {
       return [...PROVIDERS.free, ...PROVIDERS.paid, ...PROVIDERS.local];
@@ -668,41 +677,50 @@
       });
     }
 
-    function getChromeRuntime() {
-      const rt = window.chrome?.runtime;
-      return rt?.sendMessage ? rt : null;
-    }
-
-    function sendBridgeMessage(payload) {
-      const rt = getChromeRuntime();
-      if (!rt) return Promise.reject(new Error('no extension'));
-      return new Promise((resolve, reject) => {
-        rt.sendMessage(ZERRO_BRIDGE_ID, payload, (res) => {
-          if (rt.lastError) reject(new Error(rt.lastError.message));
-          else resolve(res);
-        });
-      });
-    }
-
-    async function fetchModelsViaExtension() {
+    function supportsLoopbackFetch() {
       try {
-        const res = await sendBridgeMessage({ type: 'GET_MODELS' });
-        if (res?.success && Array.isArray(res.models) && res.models.length) {
-          return res.models;
+        return 'targetAddressSpace' in new Request('http://127.0.0.1', { targetAddressSpace: 'loopback' });
+      } catch {
+        return false;
+      }
+    }
+
+    async function primeLoopbackPermission() {
+      const hint = document.getElementById('ollama-permission-hint');
+      if (!supportsLoopbackFetch()) return;
+      hint?.classList.remove('hidden');
+      try {
+        if (navigator.permissions?.query) {
+          await navigator.permissions.query({ name: 'local-network-access' }).catch(() => null);
+          await navigator.permissions.query({ name: 'loopback-network' }).catch(() => null);
         }
-      } catch (_) { /* extension not installed */ }
-      return null;
+      } catch (_) { /* permission names vary by browser */ }
     }
 
-    async function probeOllama(baseUrl) {
+    function parseOllamaModels(data, kind) {
+      if (kind === 'tags') {
+        return (data.models || []).map(m => m.name).filter(Boolean);
+      }
+      return (data.data || []).map(m => m.id || m.name).filter(Boolean);
+    }
+
+    async function fetchOllamaEndpoint(url, addressSpace, kind) {
       const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 4000);
+      const timer = setTimeout(() => ctrl.abort(), 8000);
+      const opts = {
+        method: 'GET',
+        signal: ctrl.signal,
+        mode: 'cors',
+        credentials: 'omit',
+        headers: { Accept: 'application/json' },
+      };
+      if (addressSpace) opts.targetAddressSpace = addressSpace;
       try {
-        const res = await fetch(`${baseUrl}/api/tags`, { signal: ctrl.signal, mode: 'cors' });
+        const res = await fetch(url, opts);
         if (!res.ok) return null;
         const data = await res.json();
-        const models = (data.models || []).map(m => m.name).filter(Boolean);
-        return models.length ? models : null;
+        const models = parseOllamaModels(data, kind);
+        return models.length ? [...new Set(models)] : null;
       } catch {
         return null;
       } finally {
@@ -710,13 +728,21 @@
       }
     }
 
-    async function fetchAllOllamaModels() {
-      const extensionModels = await fetchModelsViaExtension();
-      if (extensionModels?.length) return { models: extensionModels, source: 'extension' };
+    async function probeOllama(baseUrl, addressSpace) {
+      const tags = await fetchOllamaEndpoint(`${baseUrl}/api/tags`, addressSpace, 'tags');
+      if (tags?.length) return tags;
+      return fetchOllamaEndpoint(`${baseUrl}/v1/models`, addressSpace, 'openai');
+    }
 
-      for (const url of [OLLAMA_URL, 'http://127.0.0.1:11434']) {
-        const models = await probeOllama(url);
-        if (models?.length) return { models, source: 'local' };
+    async function fetchAllOllamaModels() {
+      await primeLoopbackPermission();
+
+      for (const { base, space } of OLLAMA_PROBE_URLS) {
+        const models = await probeOllama(base, space);
+        if (models?.length) {
+          ollamaWorkingUrl = base;
+          return { models, source: space ? 'loopback' : 'direct' };
+        }
       }
 
       return { models: [], source: 'none' };
@@ -748,12 +774,14 @@
       const checking = document.getElementById('ollama-checking');
       const ready = document.getElementById('ollama-ready');
       const missing = document.getElementById('ollama-missing');
+      const hint = document.getElementById('ollama-permission-hint');
       const btn = document.getElementById('start-btn');
       const statusMsg = document.getElementById('ollama-status-msg');
 
       ollamaReady = false;
       ollamaModels = [];
       checking.classList.remove('hidden');
+      hint?.classList.add('hidden');
       ready.classList.add('hidden');
       missing.classList.add('hidden');
       btn.disabled = true;
@@ -761,13 +789,14 @@
 
       const { models, source } = await fetchAllOllamaModels();
       checking.classList.add('hidden');
+      hint?.classList.add('hidden');
 
       if (models.length) {
         ollamaModels = models;
         ollamaReady = true;
         populateModelSelect(models);
-        statusMsg.textContent = source === 'extension'
-          ? `Found ${models.length} model${models.length > 1 ? 's' : ''} via Zerro Bridge`
+        statusMsg.textContent = source === 'loopback'
+          ? `Found ${models.length} local model${models.length > 1 ? 's' : ''} (browser local access)`
           : `Found ${models.length} local model${models.length > 1 ? 's' : ''}`;
         ready.classList.remove('hidden');
         btn.disabled = false;
@@ -775,11 +804,12 @@
         return;
       }
 
-      // Ollama may be running but browser can't list models (CORS / no extension)
+      // Ollama may be running but browser blocked the list (permission / CORS)
       ollamaModels = [...OLLAMA_FALLBACK_MODELS];
       populateModelSelect([]);
       document.getElementById('ollama-model-manual-fallback').value = '';
       missing.classList.remove('hidden');
+      if (supportsLoopbackFetch()) hint?.classList.remove('hidden');
       btn.disabled = false;
       btn.textContent = '⚡ Continue with Ollama';
       updateOllamaStartButton();
@@ -798,8 +828,12 @@
     }
 
     function prepareOllamaSession() {
-      localStorage.setItem('OLLAMA_CUSTOM_URL', OLLAMA_URL);
+      const url = ollamaWorkingUrl || OLLAMA_URL;
+      localStorage.setItem('OLLAMA_CUSTOM_URL', url);
       const model = getSelectedOllamaModel();
+      if (ollamaModels.length) {
+        localStorage.setItem('ZERRO_OLLAMA_MODELS', JSON.stringify(ollamaModels));
+      }
       localStorage.setItem('ZERRO_AGENTS_LIST', JSON.stringify([{
         id: 'default-assistant',
         name: 'Universal Assistant',
