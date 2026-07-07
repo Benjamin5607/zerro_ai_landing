@@ -934,6 +934,11 @@
         if (!modal.classList.contains('hidden') && document.activeElement?.id === 'api-key-input') startSetup();
       }
     });
+
+    ['ollama-model-manual', 'ollama-model-manual-fallback', 'ollama-model-select'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', updateOllamaStartButton);
+      document.getElementById(id)?.addEventListener('change', updateOllamaStartButton);
+    });
   </script>
 </body>
 </html>
