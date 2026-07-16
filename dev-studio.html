@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Install Zerro Dev Studio — Local CLI</title>
+  <meta name="description" content="Download Zerro Dev Studio local coding agent — real bash, git, filesystem. Cursor / Claude Code style."/>
+  <meta name="theme-color" content="#050505"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#050505] text-neutral-200 font-sans antialiased min-h-screen">
+  <header class="border-b border-neutral-900 bg-black/70 backdrop-blur sticky top-0 z-20">
+    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="./" class="font-bold text-white text-sm">← Zerro AI Landing</a>
+      <a href="https://zerroai.space" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-white text-black">Launch App</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+    <p class="text-[11px] font-bold tracking-[0.18em] uppercase text-teal-400 mb-3">Local package</p>
+    <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white mb-4">
+      Zerro <span class="text-teal-400">Dev Studio</span>
+    </h1>
+    <p class="text-neutral-400 text-lg max-w-xl mb-8 leading-relaxed">
+      Installable coding agent with real <strong class="text-neutral-200">bash</strong>, <strong class="text-neutral-200">git</strong>, and <strong class="text-neutral-200">filesystem</strong> — Cursor / Claude Code parity beyond the browser IDE.
+    </p>
+
+    <div class="flex flex-wrap gap-3 mb-8">
+      <a href="#install" class="px-5 py-3 rounded-xl bg-teal-400 text-black font-black text-sm">Install CLI</a>
+      <a href="https://zerroai.space" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">Open Web IDE</a>
+      <a href="https://github.com/Benjamin5607/zerro_ai_landing/tree/main/zerro-dev-studio" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">Source</a>
+    </div>
+
+    <section id="install" class="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 mb-4">
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">One-line install</h2>
+      <pre class="font-mono text-sm text-teal-100 whitespace-pre-wrap break-all">curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash</pre>
+    </section>
+
+    <section class="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 mb-6">
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">Then</h2>
+      <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap">export GROQ_API_KEY=your_key
+cd your-project
+zerro-dev
+# or
+zerro-dev "fix the flaky test and run npm test"</pre>
+    </section>
+
+    <div class="grid sm:grid-cols-2 gap-3 mb-8">
+      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Real bash</strong><p class="text-sm text-neutral-400 m-0">npm test, lint, builds on your machine.</p></div>
+      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Native git</strong><p class="text-sm text-neutral-400 m-0">status / diff without browser API limits.</p></div>
+      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Surgical edits</strong><p class="text-sm text-neutral-400 m-0">read → grep → edit_file with verify loops.</p></div>
+      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Web companion</strong><p class="text-sm text-neutral-400 m-0">Use <a class="text-teal-400" href="https://zerroai.space">zerroai.space</a> for chat &amp; browser Dev Studio.</p></div>
+    </div>
+
+    <p class="text-sm text-neutral-500">
+      Package <code class="text-neutral-300">@zerro-ai/dev-studio</code> · binaries <code class="text-neutral-300">zerro-dev</code>, <code class="text-neutral-300">zerro</code>
+    </p>
+  </main>
+</body>
+</html>
