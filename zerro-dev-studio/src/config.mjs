@@ -77,9 +77,11 @@ export function resolveLlmAuth(cfg = loadConfig()) {
     {
       id: 'ollama',
       env: ['OLLAMA_HOST'],
-      baseUrl: (process.env.OLLAMA_HOST || 'http://127.0.0.1:11434').replace(/\/$/, '') + '/v1',
+      baseUrl: (process.env.OLLAMA_HOST || cfg.ollamaHost || 'http://127.0.0.1:11434').replace(/\/$/, '') + '/v1',
       defaultModel: 'llama3.2',
       optionalKey: true,
+      /** Use saved connect even when OLLAMA_HOST env is unset */
+      configHost: cfg.ollamaHost,
     },
   ];
 
@@ -96,6 +98,16 @@ export function resolveLlmAuth(cfg = loadConfig()) {
         key = process.env[e];
         break;
       }
+    }
+    const ollamaReady = p.id === 'ollama' && (p.configHost || key || cfg.provider === 'ollama');
+    if (p.optionalKey && ollamaReady) {
+      const host = (p.configHost || key || 'http://127.0.0.1:11434').replace(/\/$/, '');
+      return {
+        provider: 'ollama',
+        apiKey: 'ollama',
+        baseUrl: `${host}/v1`,
+        model: cfg.model || p.defaultModel,
+      };
     }
     if (p.optionalKey || key) {
       return {
