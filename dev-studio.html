@@ -29,24 +29,30 @@
     </p>
 
     <div class="flex flex-wrap gap-3 mb-10">
-      <a href="#desktop" class="px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm">Desktop App</a>
+      <a href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip" class="px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm">⬇ Download Windows Setup</a>
+      <a href="#desktop" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">Install guide</a>
       <a href="#cli" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">CLI (advanced)</a>
       <a href="https://zerroai.space" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">Web IDE</a>
     </div>
 
     <section id="desktop" class="rounded-2xl border border-violet-900/50 bg-violet-950/20 p-5 mb-6">
-      <h2 class="text-[11px] font-bold tracking-widest uppercase text-violet-300 mb-3">Desktop App (Windows / macOS / Linux)</h2>
-      <p class="text-sm text-neutral-400 mb-4">Clone the main repo and run the Electron shell — or download a release build when available.</p>
-      <pre class="font-mono text-sm text-violet-100 whitespace-pre-wrap break-all mb-4">git clone https://github.com/Benjamin5607/zero_ai.git
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-violet-300 mb-3">Windows Desktop — double-click install</h2>
+      <ol class="text-sm text-neutral-300 space-y-2 mb-5 list-decimal list-inside">
+        <li>Download <a class="text-violet-300 underline" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip">Zerro-Dev-Studio-0.2.1-Setup.zip</a></li>
+        <li>Extract the ZIP</li>
+        <li>Double-click <strong class="text-white">Install.cmd</strong></li>
+        <li>Use the Desktop shortcut <strong class="text-white">Zerro Dev Studio</strong></li>
+      </ol>
+      <a href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip" class="inline-block px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm mb-5">⬇ Download Setup.zip (Windows x64)</a>
+      <p class="text-sm text-neutral-500 mb-2">PowerShell one-liner:</p>
+      <pre class="font-mono text-sm text-violet-100 whitespace-pre-wrap break-all mb-4">irm https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install-desktop.ps1 | iex</pre>
+      <p class="text-sm text-neutral-500 mb-2">Or build from source:</p>
+      <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap">git clone https://github.com/Benjamin5607/zero_ai.git
 cd zero_ai
 npm install
 npm run desktop:dev</pre>
-      <p class="text-sm text-neutral-500 mb-3">Production installer:</p>
-      <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap">npm run desktop:pack:win    # Windows .exe
-npm run desktop:pack:mac    # macOS .dmg
-npm run desktop:pack:linux  # Linux AppImage</pre>
       <p class="text-xs text-neutral-500 mt-4">
-        Releases: <a class="text-violet-400" href="https://github.com/Benjamin5607/zero_ai/releases">github.com/Benjamin5607/zero_ai/releases</a>
+        Releases: <a class="text-violet-400" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.1">desktop-v0.2.1</a>
       </p>
     </section>
 
