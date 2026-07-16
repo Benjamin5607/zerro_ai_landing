@@ -1,6 +1,6 @@
 # Zerro Dev Studio (local)
 
-Cursor / Claude Code–style **local coding agent** with real **bash**, **git**, and **filesystem** access.
+**Local coding agent** with real **bash**, **git**, and **filesystem** access.
 
 > Browser Dev Studio: [zerroai.space](https://zerroai.space)  
 > Install page: [benjamin5607.github.io/zerro_ai_landing/dev-studio.html](https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html)

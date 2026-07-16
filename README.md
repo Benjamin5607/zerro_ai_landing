@@ -45,7 +45,7 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 
 ## Zerro Dev Studio (local CLI)
 
-Cursor / Claude Code–style **installable agent** with real bash, git, and filesystem. Package: [`zerro-dev-studio/`](./zerro-dev-studio).
+**Installable local coding agent** with real bash, git, and filesystem. Package: [`zerro-dev-studio/`](./zerro-dev-studio).
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash
