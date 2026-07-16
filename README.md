@@ -27,12 +27,14 @@ This repository contains a static landing page for Zerro AI. It is built as a si
 
 The landing page presents Zerro AI as a workspace-level AI command center with:
 
-- Parallel AI-agent orchestration
+- Parallel AI-agent orchestration (Swarm Engine)
+- **Zerro Dev Studio** — web + Windows desktop (agent-first pastel-mint UI, EN/KO)
 - Long-term vector memory
 - Hyper-search across external information sources
 - Native JSON function calling
 - ReAct-style agent recovery loops
 - Workspace-aware output routing for Lark, Google Workspace, Slack, Notion, Supabase, GitHub, and related tools
+- Public install page with **EN / 한국어** toggle for Desktop Setup + CLI
 
 ## Live Links
 
@@ -40,12 +42,24 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 | --- | --- |
 | Live command center | <https://zerroai.space> |
 | Landing site | <https://benjamin5607.github.io/zerro_ai_landing/> |
-| **Install Dev Studio CLI** | <https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html> |
+| **Dev Studio install (Desktop + CLI)** | <https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html> |
+| Windows Desktop Setup (v0.2.1) | <https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.1> |
 | Landing repository | <https://github.com/Benjamin5607/zerro_ai_landing> |
 
-## Zerro Dev Studio (local CLI)
+## Zerro Dev Studio
 
-**Installable local coding agent** with real bash, git, and filesystem. Package: [`zerro-dev-studio/`](./zerro-dev-studio).
+**Desktop App (recommended)** — windowed local IDE with Ollama one-click, native folders, Shell tab, agent-first pastel-mint UI (shared with web), and **EN / 한국어** on the install page + in-app.
+
+```text
+Download Setup.zip → extract → double-click Install.cmd
+https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip
+```
+
+```powershell
+irm https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install-desktop.ps1 | iex
+```
+
+**CLI (advanced / CI)** — installable agent with real bash, git, and filesystem. Package: [`zerro-dev-studio/`](./zerro-dev-studio).
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash
@@ -56,10 +70,9 @@ export GROQ_API_KEY=…
 cd your-project && zerro-dev
 ```
 
-Install page: [dev-studio.html](https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html)
+Install page (EN default + KO toggle): [dev-studio.html](https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html)
 
-This repository documents the public landing-page source and deployment-facing content for Zerro AI. If the core application is maintained in a separate private repository, keep this README focused on the landing-page experience and link to the core repository only when it is publicly available.
-
+Core app source lives in the private `zero_ai` repo (Next.js + Electron). This landing repo hosts public install pages, the CLI package, and Windows Setup releases.
 ## Product Message
 
 Zerro AI is described as a **Next-Gen AI Orchestration Layer** designed to coordinate multiple specialized agents in parallel. The landing page emphasizes a shift away from single-threaded chatbot workflows toward an operating-system style interface where an "Overseer" can analyze objectives, route work to specialized agents, and return structured outputs to the user's active workspace.
