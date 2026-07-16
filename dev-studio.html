@@ -13,59 +13,80 @@
 </head>
 <body class="bg-[#050505] text-neutral-200 font-sans antialiased min-h-screen">
   <header class="border-b border-neutral-900 bg-black/70 backdrop-blur sticky top-0 z-20">
-    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
-      <a href="./" class="font-bold text-white text-sm">← Zerro AI Landing</a>
-      <a href="https://zerroai.space" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-white text-black">Launch Web IDE</a>
+    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between gap-3">
+      <a href="./" class="font-bold text-white text-sm" data-i18n="navBack">← Zerro AI Landing</a>
+      <div class="flex items-center gap-2">
+        <div class="flex rounded-lg border border-neutral-800 p-0.5 bg-neutral-950" role="group" aria-label="Language">
+          <button type="button" id="lang-en" onclick="setLang('en')" class="px-2.5 py-1 text-[10px] font-bold rounded-md">EN</button>
+          <button type="button" id="lang-ko" onclick="setLang('ko')" class="px-2.5 py-1 text-[10px] font-bold rounded-md">한국어</button>
+        </div>
+        <a href="https://zerroai.space" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-white text-black" data-i18n="navLaunch">Launch Web IDE</a>
+      </div>
     </div>
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
-    <p class="text-[11px] font-bold tracking-[0.18em] uppercase text-violet-400 mb-3">Desktop App — recommended</p>
+    <p class="text-[11px] font-bold tracking-[0.18em] uppercase text-violet-400 mb-3" data-i18n="eyebrow">Desktop App — recommended</p>
     <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white mb-4">
       Zerro <span class="text-violet-400">Dev Studio</span>
     </h1>
-    <p class="text-neutral-400 text-lg max-w-xl mb-8 leading-relaxed">
-      <strong class="text-neutral-200">Cursor처럼 창으로 뜨는 로컬 IDE</strong> — 터미널 CLI가 아닙니다. Ollama 원클릭 연결, 네이티브 폴더, 실제 Shell 탭.
+    <p class="text-neutral-400 text-lg max-w-xl mb-8 leading-relaxed" data-i18n-html="heroLead">
+      <strong class="text-neutral-200">A local IDE that opens as a window like Cursor</strong> — not a terminal CLI. One-click Ollama, native folders, real Shell tab.
     </p>
 
     <div class="flex flex-wrap gap-3 mb-10">
-      <a href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip" class="px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm">⬇ Download Windows Setup</a>
-      <a href="#desktop" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">Install guide</a>
-      <a href="#cli" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">CLI (advanced)</a>
-      <a href="https://zerroai.space" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900">Web IDE</a>
+      <a href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip" class="px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm" data-i18n="btnDownload">⬇ Download Windows Setup</a>
+      <a href="#desktop" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900" data-i18n="btnGuide">Install guide</a>
+      <a href="#cli" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900" data-i18n="btnCli">CLI (advanced)</a>
+      <a href="https://zerroai.space" class="px-5 py-3 rounded-xl border border-neutral-700 font-bold text-sm hover:bg-neutral-900" data-i18n="btnWeb">Web IDE</a>
     </div>
 
     <section id="desktop" class="rounded-2xl border border-violet-900/50 bg-violet-950/20 p-5 mb-6">
-      <h2 class="text-[11px] font-bold tracking-widest uppercase text-violet-300 mb-3">Windows Desktop — double-click install</h2>
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-violet-300 mb-3" data-i18n="desktopTitle">Windows Desktop — double-click install</h2>
       <ol class="text-sm text-neutral-300 space-y-2 mb-5 list-decimal list-inside">
-        <li>Download <a class="text-violet-300 underline" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip">Zerro-Dev-Studio-0.2.1-Setup.zip</a></li>
-        <li>Extract the ZIP</li>
-        <li>Double-click <strong class="text-white">Install.cmd</strong></li>
-        <li>Use the Desktop shortcut <strong class="text-white">Zerro Dev Studio</strong></li>
+        <li data-i18n-html="step1">Download <a class="text-violet-300 underline" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip">Zerro-Dev-Studio-0.2.1-Setup.zip</a></li>
+        <li data-i18n="step2">Extract the ZIP</li>
+        <li data-i18n-html="step3">Double-click <strong class="text-white">Install.cmd</strong></li>
+        <li data-i18n-html="step4">Use the Desktop shortcut <strong class="text-white">Zerro Dev Studio</strong></li>
       </ol>
-      <a href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip" class="inline-block px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm mb-5">⬇ Download Setup.zip (Windows x64)</a>
-      <p class="text-sm text-neutral-500 mb-2">PowerShell one-liner:</p>
+      <a href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip" class="inline-block px-5 py-3 rounded-xl bg-violet-500 text-white font-black text-sm mb-5" data-i18n="btnDownloadZip">⬇ Download Setup.zip (Windows x64)</a>
+      <p class="text-sm text-neutral-500 mb-2" data-i18n="psLabel">PowerShell one-liner:</p>
       <pre class="font-mono text-sm text-violet-100 whitespace-pre-wrap break-all mb-4">irm https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install-desktop.ps1 | iex</pre>
-      <p class="text-sm text-neutral-500 mb-2">Or build from source:</p>
+      <p class="text-sm text-neutral-500 mb-2" data-i18n="sourceLabel">Or build from source:</p>
       <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap">git clone https://github.com/Benjamin5607/zero_ai.git
 cd zero_ai
 npm install
 npm run desktop:dev</pre>
-      <p class="text-xs text-neutral-500 mt-4">
+      <p class="text-xs text-neutral-500 mt-4" data-i18n-html="releasesNote">
         Releases: <a class="text-violet-400" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.1">desktop-v0.2.1</a>
+      </p>
+      <p class="text-xs text-neutral-500 mt-3" data-i18n="appLangHint">
+        In the app: Settings ⚙️ → Language (English default / 한국어).
       </p>
     </section>
 
     <div class="grid sm:grid-cols-2 gap-3 mb-10">
-      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Windowed IDE</strong><p class="text-sm text-neutral-400 m-0">Like Cursor local — not a terminal REPL.</p></div>
-      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Ollama one-click</strong><p class="text-sm text-neutral-400 m-0">No browser CORS prompts.</p></div>
-      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Real Shell tab</strong><p class="text-sm text-neutral-400 m-0">PTY + xterm — npm test, git, builds.</p></div>
-      <div class="rounded-xl border border-neutral-800 p-4"><strong class="block text-white mb-1">Native filesystem</strong><p class="text-sm text-neutral-400 m-0">Open any project folder from the OS dialog.</p></div>
+      <div class="rounded-xl border border-neutral-800 p-4">
+        <strong class="block text-white mb-1" data-i18n="feat1Title">Windowed IDE</strong>
+        <p class="text-sm text-neutral-400 m-0" data-i18n="feat1Body">Like Cursor local — not a terminal REPL.</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-4">
+        <strong class="block text-white mb-1" data-i18n="feat2Title">Ollama one-click</strong>
+        <p class="text-sm text-neutral-400 m-0" data-i18n="feat2Body">No browser CORS prompts.</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-4">
+        <strong class="block text-white mb-1" data-i18n="feat3Title">Real Shell tab</strong>
+        <p class="text-sm text-neutral-400 m-0" data-i18n="feat3Body">PTY + xterm — npm test, git, builds.</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-4">
+        <strong class="block text-white mb-1" data-i18n="feat4Title">Native filesystem</strong>
+        <p class="text-sm text-neutral-400 m-0" data-i18n="feat4Body">Open any project folder from the OS dialog.</p>
+      </div>
     </div>
 
     <section id="cli" class="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 mb-4">
-      <h2 class="text-[11px] font-bold tracking-widest uppercase text-teal-300 mb-2">CLI — advanced / CI</h2>
-      <p class="text-sm text-neutral-500 mb-4">For scripts, headless agents, and power users who prefer the terminal.</p>
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-teal-300 mb-2" data-i18n="cliTitle">CLI — advanced / CI</h2>
+      <p class="text-sm text-neutral-500 mb-4" data-i18n="cliLead">For scripts, headless agents, and power users who prefer the terminal.</p>
       <h3 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">macOS / Linux</h3>
       <pre class="font-mono text-sm text-teal-100 whitespace-pre-wrap break-all mb-4">curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash</pre>
       <h3 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">Windows (PowerShell)</h3>
@@ -75,16 +96,132 @@ npm run desktop:dev</pre>
     </section>
 
     <section class="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 mb-6">
-      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">CLI quick start</h2>
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3" data-i18n="cliQuick">CLI quick start</h2>
       <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap">zerro-dev ollama connect
 cd your-project
 zerro-dev "fix the flaky test and run npm test"</pre>
     </section>
 
-    <p class="text-sm text-neutral-500">
+    <p class="text-sm text-neutral-500" data-i18n-html="footerNote">
       Desktop source: <a class="text-violet-400" href="https://github.com/Benjamin5607/zero_ai/tree/main/desktop">zero_ai/desktop</a> ·
       CLI package: <code class="text-neutral-300">zerro-dev</code>
     </p>
   </main>
+
+  <script>
+    const I18N = {
+      en: {
+        title: 'Install Zerro Dev Studio — Desktop App',
+        description: 'Download Zerro Dev Studio — Cursor-style local desktop IDE with Ollama, native shell, and filesystem.',
+        navBack: '← Zerro AI Landing',
+        navLaunch: 'Launch Web IDE',
+        eyebrow: 'Desktop App — recommended',
+        heroLead: '<strong class="text-neutral-200">A local IDE that opens as a window like Cursor</strong> — not a terminal CLI. One-click Ollama, native folders, real Shell tab.',
+        btnDownload: '⬇ Download Windows Setup',
+        btnGuide: 'Install guide',
+        btnCli: 'CLI (advanced)',
+        btnWeb: 'Web IDE',
+        desktopTitle: 'Windows Desktop — double-click install',
+        step1: 'Download <a class="text-violet-300 underline" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip">Zerro-Dev-Studio-0.2.1-Setup.zip</a>',
+        step2: 'Extract the ZIP',
+        step3: 'Double-click <strong class="text-white">Install.cmd</strong>',
+        step4: 'Use the Desktop shortcut <strong class="text-white">Zerro Dev Studio</strong>',
+        btnDownloadZip: '⬇ Download Setup.zip (Windows x64)',
+        psLabel: 'PowerShell one-liner:',
+        sourceLabel: 'Or build from source:',
+        releasesNote: 'Releases: <a class="text-violet-400" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.1">desktop-v0.2.1</a>',
+        appLangHint: 'In the app: Settings ⚙️ → Language (English default / 한국어).',
+        feat1Title: 'Windowed IDE',
+        feat1Body: 'Like Cursor local — not a terminal REPL.',
+        feat2Title: 'Ollama one-click',
+        feat2Body: 'No browser CORS prompts.',
+        feat3Title: 'Real Shell tab',
+        feat3Body: 'PTY + xterm — npm test, git, builds.',
+        feat4Title: 'Native filesystem',
+        feat4Body: 'Open any project folder from the OS dialog.',
+        cliTitle: 'CLI — advanced / CI',
+        cliLead: 'For scripts, headless agents, and power users who prefer the terminal.',
+        cliQuick: 'CLI quick start',
+        footerNote: 'Desktop source: <a class="text-violet-400" href="https://github.com/Benjamin5607/zero_ai/tree/main/desktop">zero_ai/desktop</a> · CLI package: <code class="text-neutral-300">zerro-dev</code>'
+      },
+      ko: {
+        title: 'Zerro Dev Studio 설치 — 데스크톱 앱',
+        description: 'Zerro Dev Studio 다운로드 — Cursor 스타일 로컬 데스크톱 IDE. Ollama, 네이티브 Shell, 파일시스템.',
+        navBack: '← Zerro AI 랜딩',
+        navLaunch: '웹 IDE 실행',
+        eyebrow: '데스크톱 앱 — 추천',
+        heroLead: '<strong class="text-neutral-200">Cursor처럼 창으로 뜨는 로컬 IDE</strong> — 터미널 CLI가 아닙니다. Ollama 원클릭 연결, 네이티브 폴더, 실제 Shell 탭.',
+        btnDownload: '⬇ Windows Setup 다운로드',
+        btnGuide: '설치 가이드',
+        btnCli: 'CLI (고급)',
+        btnWeb: '웹 IDE',
+        desktopTitle: 'Windows 데스크톱 — 더블클릭 설치',
+        step1: '<a class="text-violet-300 underline" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip">Zerro-Dev-Studio-0.2.1-Setup.zip</a> 다운로드',
+        step2: 'ZIP 압축 해제',
+        step3: '<strong class="text-white">Install.cmd</strong> 더블클릭',
+        step4: '바탕화면 바로가기 <strong class="text-white">Zerro Dev Studio</strong> 실행',
+        btnDownloadZip: '⬇ Setup.zip 다운로드 (Windows x64)',
+        psLabel: 'PowerShell 한 줄 설치:',
+        sourceLabel: '또는 소스에서 빌드:',
+        releasesNote: '릴리스: <a class="text-violet-400" href="https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.1">desktop-v0.2.1</a>',
+        appLangHint: '앱에서: 설정 ⚙️ → 언어 (영어 기본 / 한국어).',
+        feat1Title: '창 모드 IDE',
+        feat1Body: 'Cursor처럼 로컬 창 — 터미널 REPL이 아닙니다.',
+        feat2Title: 'Ollama 원클릭',
+        feat2Body: '브라우저 CORS 프롬프트 없음.',
+        feat3Title: '실제 Shell 탭',
+        feat3Body: 'PTY + xterm — npm test, git, 빌드.',
+        feat4Title: '네이티브 파일시스템',
+        feat4Body: 'OS 다이얼로그로 아무 프로젝트 폴더나 열기.',
+        cliTitle: 'CLI — 고급 / CI',
+        cliLead: '스크립트, 헤드리스 에이전트, 터미널을 선호하는 파워 유저용.',
+        cliQuick: 'CLI 빠른 시작',
+        footerNote: '데스크톱 소스: <a class="text-violet-400" href="https://github.com/Benjamin5607/zero_ai/tree/main/desktop">zero_ai/desktop</a> · CLI 패키지: <code class="text-neutral-300">zerro-dev</code>'
+      }
+    };
+
+    const LANG_KEY = 'ZERRO_LANDING_LANG';
+
+    function applyLang(lang) {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.title = dict.title;
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute('content', dict.description);
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+
+      const enBtn = document.getElementById('lang-en');
+      const koBtn = document.getElementById('lang-ko');
+      const active = 'bg-violet-500 text-white';
+      const idle = 'text-neutral-400 hover:text-white';
+      if (enBtn && koBtn) {
+        enBtn.className = 'px-2.5 py-1 text-[10px] font-bold rounded-md ' + (lang === 'en' ? active : idle);
+        koBtn.className = 'px-2.5 py-1 text-[10px] font-bold rounded-md ' + (lang === 'ko' ? active : idle);
+      }
+    }
+
+    function setLang(lang) {
+      const next = lang === 'ko' ? 'ko' : 'en';
+      try { localStorage.setItem(LANG_KEY, next); } catch (_) {}
+      applyLang(next);
+    }
+
+    (function init() {
+      let saved = 'en';
+      try {
+        const v = localStorage.getItem(LANG_KEY);
+        if (v === 'ko' || v === 'en') saved = v;
+      } catch (_) {}
+      applyLang(saved);
+    })();
+  </script>
 </body>
 </html>
