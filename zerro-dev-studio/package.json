@@ -1,6 +1,6 @@
 {
   "name": "@zerro-ai/dev-studio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zerro Dev Studio \u2014 local coding agent with real bash, git, and filesystem (Cursor / Claude Code style)",
   "type": "module",
   "bin": {
@@ -11,7 +11,9 @@
     "bin",
     "src",
     "README.md",
-    "install.sh"
+    "install.sh",
+    "install.ps1",
+    "install.cmd"
   ],
   "engines": {
     "node": ">=18"

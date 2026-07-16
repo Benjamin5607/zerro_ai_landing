@@ -35,16 +35,25 @@
     </div>
 
     <section id="install" class="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 mb-4">
-      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">One-line install</h2>
-      <pre class="font-mono text-sm text-teal-100 whitespace-pre-wrap break-all">curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash</pre>
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">macOS / Linux</h2>
+      <pre class="font-mono text-sm text-teal-100 whitespace-pre-wrap break-all mb-4">curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash</pre>
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">Windows (PowerShell — no bash)</h2>
+      <pre class="font-mono text-sm text-teal-100 whitespace-pre-wrap break-all mb-4">irm https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.ps1 | iex</pre>
+      <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">Windows (CMD)</h2>
+      <pre class="font-mono text-sm text-teal-100 whitespace-pre-wrap break-all">curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.cmd -o %TEMP%\zerro-install.cmd &amp;&amp; %TEMP%\zerro-install.cmd</pre>
     </section>
 
     <section class="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 mb-6">
       <h2 class="text-[11px] font-bold tracking-widest uppercase text-indigo-300 mb-3">Then</h2>
-      <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap">export GROQ_API_KEY=your_key
+      <pre class="font-mono text-sm text-neutral-200 whitespace-pre-wrap"># Local Ollama (one click — start Ollama app first)
+zerro-dev ollama connect
+
+# Or cloud API
+set GROQ_API_KEY=your_key          REM Windows CMD
+$env:GROQ_API_KEY="your_key"       # PowerShell
+
 cd your-project
 zerro-dev
-# or
 zerro-dev "fix the flaky test and run npm test"</pre>
     </section>
 
