@@ -1,0 +1,42 @@
+{
+  "name": "@zerro-ai/dev-studio",
+  "version": "0.1.0",
+  "description": "Zerro Dev Studio \u2014 local coding agent with real bash, git, and filesystem (Cursor / Claude Code style)",
+  "type": "module",
+  "bin": {
+    "zerro-dev": "./bin/zerro-dev.mjs",
+    "zerro": "./bin/zerro-dev.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "install.sh"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "zerro",
+    "dev-studio",
+    "coding-agent",
+    "claude-code",
+    "cursor",
+    "cli",
+    "ai"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Benjamin5607/zerro_ai_landing.git",
+    "directory": "zerro-dev-studio"
+  },
+  "homepage": "https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html",
+  "bugs": {
+    "url": "https://github.com/Benjamin5607/zerro_ai_landing/issues"
+  },
+  "scripts": {
+    "start": "node ./bin/zerro-dev.mjs",
+    "test": "node --test ./src/__tests__/*.test.mjs"
+  }
+}

@@ -39,7 +39,24 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 | Resource | URL |
 | --- | --- |
 | Live command center | <https://zerroai.space> |
+| Landing site | <https://benjamin5607.github.io/zerro_ai_landing/> |
+| **Install Dev Studio CLI** | <https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html> |
 | Landing repository | <https://github.com/Benjamin5607/zerro_ai_landing> |
+
+## Zerro Dev Studio (local CLI)
+
+Cursor / Claude Code–style **installable agent** with real bash, git, and filesystem. Package: [`zerro-dev-studio/`](./zerro-dev-studio).
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install.sh | bash
+```
+
+```bash
+export GROQ_API_KEY=…
+cd your-project && zerro-dev
+```
+
+Install page: [dev-studio.html](https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html)
 
 This repository documents the public landing-page source and deployment-facing content for Zerro AI. If the core application is maintained in a separate private repository, keep this README focused on the landing-page experience and link to the core repository only when it is publicly available.
 
