@@ -43,7 +43,7 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 | Live command center | <https://zerroai.space> |
 | Landing site | <https://benjamin5607.github.io/zerro_ai_landing/> |
 | **Dev Studio install (Desktop + CLI)** | <https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html> |
-| Windows Desktop Setup (v0.2.1) | <https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.1> |
+| Windows Desktop Setup (v0.2.2) | <https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.2> |
 | Landing repository | <https://github.com/Benjamin5607/zerro_ai_landing> |
 
 ## Zerro Dev Studio
@@ -52,7 +52,7 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 
 ```text
 Download Setup.zip → extract → double-click Install.cmd
-https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.1/Zerro-Dev-Studio-0.2.1-Setup.zip
+https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v0.2.2/Zerro-Dev-Studio-0.2.2-Setup.zip
 ```
 
 ```powershell
