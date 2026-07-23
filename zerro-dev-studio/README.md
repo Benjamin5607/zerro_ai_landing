@@ -4,7 +4,7 @@
 
 > Web / Desktop Dev Studio: [zerroai.space](https://zerroai.space)  
 > Install page (Desktop Setup + CLI): [benjamin5607.github.io/zerro_ai_landing/dev-studio.html](https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html)  
-> Windows Desktop Setup: [desktop-v0.2.7](https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.7)
+> Windows Desktop Setup: [desktop-v0.2.8](https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.8)
 
 The browser and Electron apps share an **agent-first pastel-mint** Dev Studio UI (EN default / 한국어). This package is the **CLI** path for scripts, headless agents, and CI.
 ## Install

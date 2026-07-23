@@ -4,7 +4,7 @@
   irm https://raw.githubusercontent.com/Benjamin5607/zerro_ai_landing/main/zerro-dev-studio/install-desktop.ps1 | iex
 #>
 $ErrorActionPreference = 'Stop'
-$Version = '0.2.7'
+$Version = '0.2.8'
 $ReleaseApi = 'https://api.github.com/repos/Benjamin5607/zerro_ai_landing/releases/latest'
 $FallbackUrl = "https://github.com/Benjamin5607/zerro_ai_landing/releases/download/desktop-v$Version/Zerro-Dev-Studio-$Version-Setup.zip"
 
