@@ -55,6 +55,7 @@
       </a>
       <div class="hidden md:flex items-center gap-6 text-sm text-gray-400">
         <a href="#features" class="hover:text-white transition-colors" data-i18n="navCapabilities">Capabilities</a>
+        <a href="#latest" class="hover:text-white transition-colors" data-i18n="navLatest">Latest</a>
         <a href="#pipeline" class="hover:text-white transition-colors" data-i18n="navAgents">Agents</a>
         <a href="./dev-studio.html" class="hover:text-teal-300 transition-colors" data-i18n="navDevStudio">Dev Studio</a>
         <a href="#eccentric-lab" class="hover:text-white transition-colors" data-i18n="navLabs">Labs</a>
@@ -140,6 +141,56 @@
       <img src="./UI.png" alt="Zerro AI Linear Pipeline Dashboard" class="w-full rounded-xl sm:rounded-2xl border border-gray-800/80 shadow-2xl opacity-95 hover:opacity-100 transition-opacity duration-500 mt-6 sm:mt-0" loading="lazy"/>
     </div>
     <p class="text-center text-xs sm:text-sm text-gray-600 mt-4">Visual workflow builder with AI Auto-Plan, live mission monitoring, and tactical presets.</p>
+  </section>
+
+  <!-- Latest Updates -->
+  <section id="latest" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8 sm:mb-10">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/25 border border-emerald-700/40 text-[10px] sm:text-xs text-emerald-300 font-bold uppercase tracking-widest mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Recently shipped
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-black tracking-tight mb-3">Latest Zerro AI Updates</h2>
+        <p class="text-gray-500 text-sm sm:text-base max-w-2xl">
+          The current app has moved beyond a landing concept: Bring Your Own AI, secure provider vaulting, Desktop Setup, and a local Dev Studio path are now part of the product surface.
+        </p>
+      </div>
+      <a href="./dev-studio.html" class="inline-flex w-fit px-5 py-3 rounded-xl border border-teal-700/50 bg-teal-950/40 text-teal-200 text-sm font-black hover:bg-teal-900/50 transition-colors">
+        Install Dev Studio v0.2.8
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div class="rounded-2xl border border-gray-800 bg-black/50 p-5 sm:p-6 hover:border-emerald-500/40 transition-colors">
+        <div class="text-2xl mb-4">🆓</div>
+        <h3 class="text-base sm:text-lg font-bold text-white mb-2">Bring Your Own AI</h3>
+        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+          API Hub supports free, paid, and local providers including Groq, Gemini, DeepSeek, Cerebras, NVIDIA NIM, and Ollama.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-gray-800 bg-black/50 p-5 sm:p-6 hover:border-blue-500/40 transition-colors">
+        <div class="text-2xl mb-4">🔐</div>
+        <h3 class="text-base sm:text-lg font-bold text-white mb-2">Secure Key Vault</h3>
+        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+          Connected keys route through the live app's Vercel proxy and HttpOnly vault. Token usage views cover today, 7 days, and 30 days.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-gray-800 bg-black/50 p-5 sm:p-6 hover:border-violet-500/40 transition-colors">
+        <div class="text-2xl mb-4">🖥️</div>
+        <h3 class="text-base sm:text-lg font-bold text-white mb-2">Windows Desktop Setup</h3>
+        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+          Dev Studio Desktop v0.2.8 ships as a Setup.zip with one-line PowerShell install, Ollama one-click, native folders, and real Shell tab.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-gray-800 bg-black/50 p-5 sm:p-6 hover:border-amber-500/40 transition-colors">
+        <div class="text-2xl mb-4">🔌</div>
+        <h3 class="text-base sm:text-lg font-bold text-white mb-2">MCP + Scheduling</h3>
+        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+          Register MCP servers, attach files, and choose NOW, ONCE, or REPEAT run timing for command, workflow, meeting, and code tasks.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Capabilities -->
@@ -1193,6 +1244,7 @@
     const LANDING_I18N = {
       en: {
         navCapabilities: 'Capabilities',
+        navLatest: 'Latest',
         navAgents: 'Agents',
         navDevStudio: 'Dev Studio',
         navLabs: 'Labs',
@@ -1210,6 +1262,7 @@
       },
       ko: {
         navCapabilities: '기능',
+        navLatest: '최신 업데이트',
         navAgents: '에이전트',
         navDevStudio: 'Dev Studio',
         navLabs: '랩',
