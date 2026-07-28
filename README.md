@@ -8,8 +8,10 @@ Zerro AI Landing is the public landing page repository for **Zerro AI OS**, a ne
 
 - [Overview](#overview)
 - [Live Links](#live-links)
+- [Recent Product Updates](#recent-product-updates)
 - [Product Message](#product-message)
 - [Key Capabilities Highlighted on the Landing Page](#key-capabilities-highlighted-on-the-landing-page)
+- [Live App Feature Snapshot](#live-app-feature-snapshot)
 - [User Journey](#user-journey)
 - [Visual Assets](#visual-assets)
 - [Technology Stack](#technology-stack)
@@ -29,6 +31,12 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 
 - Parallel AI-agent orchestration (Swarm Engine)
 - **Zerro Dev Studio** — web + Windows desktop (agent-first pastel-mint UI, EN/KO)
+- **Bring Your Own AI** provider setup with free, paid, and local model paths
+- API Hub / Connection Dashboard for provider and tool readiness
+- Token usage dashboard with today / 7-day / 30-day views and export flow
+- Vercel proxy + HttpOnly cookie vault for connected API keys
+- MCP server registration for extensible tool discovery
+- Desktop download path for Windows plus CLI installers for local/CI work
 - Long-term vector memory
 - Hyper-search across external information sources
 - Native JSON function calling
@@ -45,6 +53,21 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 | **Dev Studio install (Desktop + CLI)** | <https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html> |
 | Windows Desktop Setup (v0.2.9) | <https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.9> |
 | Landing repository | <https://github.com/Benjamin5607/zerro_ai_landing> |
+
+## Recent Product Updates
+
+Recent repository history and the live app indicate these major updates:
+
+| Area | Current state |
+| --- | --- |
+| Desktop releases | Windows Desktop Setup releases are published through `desktop-v0.2.8`, with direct ZIP download and one-line PowerShell install paths. |
+| Dev Studio | Zerro Dev Studio is now positioned as the recommended local IDE path with native folders, real Shell tab, Ollama one-click, and shared agent-first pastel-mint UI. |
+| CLI package | `zerro-dev-studio/` hosts the `zerro-dev` CLI for bash/git/filesystem agent work, CI usage, and local project execution. |
+| Landing localization | The landing and install pages support English-first UX with a Korean toggle. |
+| API Workshop | The landing page supports 13 free-tier providers, 3 paid providers, and local Ollama from one setup modal. |
+| Secure key flow | API keys are routed to the live app backend vault through `https://zerroai.space/api/auth/save-key` instead of being kept as plain browser-only setup state. |
+| Ollama setup | Browser and CLI flows now support local Ollama discovery / one-click connection without the old extension-style bridge dependency. |
+| Portfolio positioning | Eccentric Lab is organized into Production, Viral, and Research labs with Zerro AI as the flagship production system. |
 
 ## Zerro Dev Studio
 
@@ -73,17 +96,19 @@ cd your-project && zerro-dev
 Install page (EN default + KO toggle): [dev-studio.html](https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html)
 
 Core app source lives in the private `zero_ai` repo (Next.js + Electron). This landing repo hosts public install pages, the CLI package, and Windows Setup releases.
+
 ## Product Message
 
-Zerro AI is described as a **Next-Gen AI Orchestration Layer** designed to coordinate multiple specialized agents in parallel. The landing page emphasizes a shift away from single-threaded chatbot workflows toward an operating-system style interface where an "Overseer" can analyze objectives, route work to specialized agents, and return structured outputs to the user's active workspace.
+Zerro AI is described as a **Bring Your Own AI, zero-cost Workspace OS** designed to coordinate multiple specialized agents in parallel. The landing page emphasizes a shift away from single-threaded chatbot workflows toward an operating-system style interface where an "Overseer" can analyze objectives, route work to specialized agents, and return structured outputs to the user's active workspace.
 
 Core positioning:
 
 - **Command multiple AI agents in parallel** instead of relying on one linear assistant.
 - **Route tasks by dependency and specialization** so independent work can execute simultaneously.
 - **Use long-term memory** through Supabase vector storage and Gemini embeddings.
-- **Connect real-world tools** through native function calling and MCP-ready architecture.
+- **Connect real-world tools** through native function calling, API Hub setup, and MCP-ready architecture.
 - **Deliver outputs directly into work systems** such as Lark Docs, Lark Bitable, Google Workspace, Slack, Notion, GitHub, Discord, and Supabase.
+- **Run locally when needed** through Ollama, the Windows desktop app, or the `zerro-dev` CLI.
 
 ## Key Capabilities Highlighted on the Landing Page
 
@@ -110,6 +135,47 @@ Agents are described as following a Reasoning + Acting loop, including self-repa
 ### Context-Aware Ecosystems
 
 The landing page highlights ecosystem switching between Lark, Google, and Native modes. Depending on the selected workspace OS, final reports can be routed to systems such as Lark Docs, Lark Bitable, or Slack.
+
+## Live App Feature Snapshot
+
+The live workspace at [zerroai.space](https://zerroai.space) currently surfaces these product areas:
+
+### Command Workspace
+
+- Secretary-style chat agent with standby state
+- Natural-language command input
+- Slash-command style modes: `/code`, `/auto`, `/meet`, `/chat`
+- File and screenshot attachment entry point
+- Sync, feedback, and desktop download affordances
+
+### Workflow and Scheduling
+
+- Command / Workflow / API Hub / Lab navigation
+- Run timing controls: **NOW**, **ONCE**, and **REPEAT**
+- Meeting and prompt workspace areas
+- Manual / guide surface for users who need operating instructions
+
+### API Hub and Connection Dashboard
+
+- Bring Your Own AI setup model
+- Engine state and OS mode indicators
+- Vercel proxy + HttpOnly vault status
+- Connected provider list including Cerebras, DeepSeek, Google Gemini, Groq, NVIDIA NIM, and Ollama
+- Token dashboard views for today, 7 days, and 30 days, plus export support
+
+### Connected Tools
+
+The live app currently lists these connected tools:
+
+- Free Web Search (DuckDuckGo)
+- Web Scraper
+- Data Analyzer
+- Smart Calculator
+- Wikipedia Search
+- Free Translator
+- RSS News Feed
+
+It also exposes MCP registration for adding an SSE URL or local stdio command.
 
 ## User Journey
 
@@ -182,9 +248,18 @@ This repository itself is currently a static HTML implementation:
 │   └── workflows/
 │       └── update_projects.yml
 ├── UI.png
+├── dev-studio.html
 ├── oneshotguide.png
 ├── index.html
 ├── update_readme.py
+├── zerro-dev-studio/
+│   ├── README.md
+│   ├── install-desktop.ps1
+│   ├── install.cmd
+│   ├── install.ps1
+│   ├── install.sh
+│   ├── package.json
+│   └── src/
 └── README.md
 ```
 
@@ -194,8 +269,10 @@ This repository itself is currently a static HTML implementation:
 | --- | --- |
 | `index.html` | Main static landing page |
 | `UI.png` | Dashboard or command-center preview image used in the hero area |
+| `dev-studio.html` | Public install page for Windows Desktop Setup and the CLI |
 | `oneshotguide.png` | Setup-guide visual used in the deployment section |
 | `update_readme.py` | Python automation script that fetches GitHub repositories and generates project cards |
+| `zerro-dev-studio/` | Local CLI package and installer scripts for advanced/CI usage |
 | `.github/workflows/update_projects.yml` | Scheduled GitHub Actions workflow for refreshing project cards |
 | `README.md` | Project documentation |
 
@@ -322,11 +399,12 @@ Recommended deployment settings:
 
 ## Security Notes
 
-- The setup modal stores user-entered API keys in browser `localStorage`.
-- `localStorage` is convenient for a client-only prototype, but it is not equivalent to server-side secret storage.
+- The current setup modal posts provider keys to the live app endpoint `https://zerroai.space/api/auth/save-key`.
+- The live app uses a Vercel backend proxy and HttpOnly cookie vault for connected provider keys.
+- Local Ollama setup may still write non-secret local model/session hints to `localStorage` so the app can auto-detect the selected local model.
 - Do not commit API keys, provider tokens, Supabase service keys, or GitHub tokens to this repository.
 - The GitHub Actions workflow should receive the Groq key only through encrypted repository secrets.
-- If Zerro AI evolves into a production app, move sensitive API calls behind a backend or serverless layer and use short-lived tokens or provider-side secret management where possible.
+- Keep sensitive API calls behind backend or serverless routes and prefer short-lived tokens or provider-side secret management where possible.
 
 ## Maintenance Checklist
 
