@@ -29,7 +29,8 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 
 - Parallel AI-agent orchestration (Swarm Engine)
 - **Zerro Dev Studio** — web + Windows desktop (agent-first pastel-mint UI, EN/KO)
-- **Legal Research** plugin (KR_AI_Legal) — Workspace sidebar ⚖️ Legal
+- **Legal Research** workstation (KR_AI_Legal) — sidebar ⚖️ Legal · matters · cite-check · open data
+- **Localization** TMS (zerro-l10n) — sidebar 🌐 L10n · Swarm translate/review · OTA packs
 - Long-term vector memory
 - Hyper-search across external information sources
 - Native JSON function calling
@@ -45,6 +46,7 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 | Landing site | <https://benjamin5607.github.io/zerro_ai_landing/> |
 | **Dev Studio install (Desktop + CLI)** | <https://benjamin5607.github.io/zerro_ai_landing/dev-studio.html> |
 | Windows Desktop Setup (v0.2.10) | <https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.10> |
+| Localization (plugin UI) | <https://zerro-localization.vercel.app> |
 | Legal Research (plugin UI) | <https://kr-ai-legal.onrender.com> |
 | npm `@zerro_ai/sdk` | <https://www.npmjs.com/package/@zerro_ai/sdk> |
 | Landing repository | <https://github.com/Benjamin5607/zerro_ai_landing> |
