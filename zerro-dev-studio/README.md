@@ -7,6 +7,7 @@
 > Windows Desktop Setup: [desktop-v0.2.10](https://github.com/Benjamin5607/zerro_ai_landing/releases/tag/desktop-v0.2.10)
 
 The browser and Electron apps share an **agent-first pastel-mint** Dev Studio UI (EN default / 한국어). This package is the **CLI** path for scripts, headless agents, and CI.
+Also in the Zerro monorepo: **Zero DevOps Agent** (`packages/zero-devops-agent` — Cloudflare Workers CI agent; [docs](https://github.com/Benjamin5607/zero_ai/blob/main/docs/ZERO_DEVOPS_AGENT.md)).
 ## Install
 
 **macOS / Linux**
