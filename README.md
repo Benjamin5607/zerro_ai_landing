@@ -50,6 +50,8 @@ The landing page presents Zerro AI as a workspace-level AI command center with:
 | Zero DevOps Agent | <https://github.com/Benjamin5607/zero_ai/blob/main/docs/ZERO_DEVOPS_AGENT.md> |
 | Localization (plugin UI) | <https://zerro-localization.vercel.app> |
 | Legal Research (plugin UI) | <https://kr-ai-legal.onrender.com> |
+| Competitive roadmap (P0–P3 MVP) | <https://github.com/Benjamin5607/zero_ai/blob/main/docs/COMPETITIVE_ROADMAP.md> |
+| Ops Admin Console | <https://zerroai.space/ops> |
 | npm `@zerro_ai/sdk` | <https://www.npmjs.com/package/@zerro_ai/sdk> |
 | Landing repository | <https://github.com/Benjamin5607/zerro_ai_landing> |
 
@@ -172,7 +174,17 @@ The landing page references the broader Zerro AI technical direction:
 | Bundling direction | Turbopack |
 | Agent integration | Native JSON function calling, MCP-ready tools |
 | Local model option | Ollama |
-| Hosted model options | Groq, Gemini |
+| Hosted model options | Groq, **NVIDIA NIM** (default `deepseek-ai/deepseek-v4-flash-0731`), Gemini, Cerebras, … |
+
+### NVIDIA NIM (synced with zero_ai v0.2.10)
+
+| Item | Value |
+| --- | --- |
+| Default | `deepseek-ai/deepseek-v4-flash-0731` |
+| EOL | `meta/llama-3.3-70b-instruct` → upstream **410 Gone** (Aug 2026) |
+| Live smoke (monorepo) | In `zero_ai`: `npm run smoke:nvidia` · `npm run smoke:full` |
+| Competitive roadmap | [P0–P3 Implemented MVP](https://github.com/Benjamin5607/zero_ai/blob/main/docs/COMPETITIVE_ROADMAP.md) |
+| Ops Admin | https://zerroai.space/ops (`ADMIN_TOKEN`) |
 
 This repository itself is currently a static HTML implementation:
 

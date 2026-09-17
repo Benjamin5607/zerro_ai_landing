@@ -416,7 +416,7 @@
             <h4 class="font-bold text-white text-sm sm:text-base mb-1">Multi-Provider Intelligence</h4>
             <p class="text-xs sm:text-sm text-gray-500">Swap between 16+ LLM providers — free and paid — and match model capability to each task without vendor lock-in.</p>
           </div>
-          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Groq · Gemini · OpenAI · Claude · …</div>
+          <div class="sm:ml-auto shrink-0 text-[10px] sm:text-xs text-gray-600 font-medium">Groq · NVIDIA NIM · Gemini · OpenAI · Claude · …</div>
         </div>
         <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 border border-gray-800 rounded-2xl bg-black/50 hover:border-amber-500/30 transition-colors">
           <div class="shrink-0 w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-400 font-black text-sm">MEM</div>
@@ -824,7 +824,7 @@
     const PROVIDERS = {
       free: [
         { id: "GROQ", label: "Groq", signupUrl: "https://console.groq.com/keys", freeTier: "~30 req/min, ultra-fast inference, no card", keyHint: "gsk_...", defaultModel: "llama-3.3-70b-versatile" },
-        { id: "NVIDIA", label: "NVIDIA NIM", signupUrl: "https://build.nvidia.com", freeTier: "100+ models, 1k–5k credits, 40 req/min", keyHint: "nvapi-..." },
+        { id: "NVIDIA", label: "NVIDIA NIM", signupUrl: "https://build.nvidia.com", freeTier: "100+ models, 1k–5k credits · default deepseek-ai/deepseek-v4-flash-0731 (llama-3.3-70b-instruct EOL/410)", keyHint: "nvapi-...", defaultModel: "deepseek-ai/deepseek-v4-flash-0731" },
         { id: "CEREBRAS", label: "Cerebras", signupUrl: "https://cloud.cerebras.ai", freeTier: "~1M tokens/day, very fast, no card" },
         { id: "GEMINI", label: "Google Gemini", signupUrl: "https://aistudio.google.com/apikey", freeTier: "Generous free tier via AI Studio", defaultModel: "gemini-2.0-flash-lite" },
         { id: "MISTRAL", label: "Mistral", signupUrl: "https://console.mistral.ai/api-keys", freeTier: "Experiment tier: 1B tokens/month" },
