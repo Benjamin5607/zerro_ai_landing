@@ -54,7 +54,7 @@ export function resolveLlmAuth(cfg = loadConfig()) {
       id: 'nvidia',
       env: ['NVIDIA_API_KEY', 'NGC_API_KEY'],
       baseUrl: 'https://integrate.api.nvidia.com/v1',
-      defaultModel: 'meta/llama-3.1-70b-instruct',
+      defaultModel: 'deepseek-ai/deepseek-v4-flash-0731',
     },
     {
       id: 'openrouter',
